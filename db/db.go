@@ -97,3 +97,100 @@ func CheckJTI(jti models.JTI) (valid bool, err error) {
 
 	_, err = db.Exec("DELETE FROM jti WHERE id=?", jti.ID)
 	if err != nil {
+		return false, err
+	}
+
+	return false, nil // Token is invalid.
+}
+
+// DeleteJTI deletes a JTI based on a jti key.
+func DeleteJTI(jti string) (err error) {
+	_, err = db.Exec("DELETE FROM jti WHERE jti=?", jti)
+	return
+}
+
+func jtiGarbageCollector() {
+	ticker := time.NewTicker(5 * time.Minute) // Tick every five minutes.
+	for {
+		<-ticker.C
+		rows, err := db.Query("SELECT id, jti, expiry FROM jti")
+		if err != nil {
+			log.Printf("Error querying JTI DB in JTI garbage collector: %v", err)
+			return
+		}
+
+		defer rows.Close()
+
+		jti := models.JTI{} // Create struct to store a JTI in.
+		for rows.Next() {
+			err = rows.Scan(&jti.ID, &jti.JTI, &jti.Expiry) // Scan data from query.
+			if err != nil {
+				log.Printf("Error scanning rows in JTI garbage collector: %v", err)
+				return
+			}
+
+			_, err := CheckJTI(jti)
+			if err != nil {
+				log.Printf("Error checking in JTI garbage collector: %v", err)
+				return
+			}
+		}
+	}
+}
+
+// GetUserFromID retrieves a user from the MySQL database.
+func GetUserFromID(uuid int) (user models.User, err error) {
+	rows, err := db.Query("SELECT email, username, password, fname, lname, priv, points, steamid, creation FROM users WHERE uuid=?", uuid)
+	if err != nil {
+		return
+	}
+
+	defer rows.Close()
+
+	user.UUID = uuid
+	for rows.Next() {
+		err = rows.Scan(&user.Email, &user.Username, &user.Password, &user.Fname, &user.Lname, &user.Priv, &user.Points, &user.SteamID, &user.Creation) // Scan data from query.
+		if err != nil {
+			return
+		}
+	}
+
+	return
+}
+
+// GetUserFromEmail retrieves a user from the MySQL database.
+func GetUserFromEmail(email string) (user models.User, err error) {
+	rows, err := db.Query("SELECT uuid, username, password, fname, lname, priv, points, steamid, creation FROM users WHERE email=?", email)
+	if err != nil {
+		return
+	}
+
+	defer rows.Close()
+
+	user.Email = email
+	for rows.Next() {
+		err = rows.Scan(&user.UUID, &user.Username, &user.Password, &user.Fname, &user.Lname, &user.Priv, &user.Points, &user.SteamID, &user.Creation) // Scan data from query.
+		if err != nil {
+			return
+		}
+	}
+
+	return
+}
+
+// GetUserFromUsername retrieves a user from the MySQL database.
+func GetUserFromUsername(username string) (user models.User, err error) {
+	rows, err := db.Query("SELECT uuid, email, password, fname, lname, priv, points, steamid, creation FROM users WHERE username=?", username)
+	if err != nil {
+		return
+	}
+
+	defer rows.Close()
+
+	user.Username = username
+	for rows.Next() {
+		err = rows.Scan(&user.UUID, &user.Email, &user.Password, &user.Fname, &user.Lname, &user.Priv, &user.Points, &user.SteamID, &user.Creation) // Scan data from query.
+		if err != nil {
+			return
+		}
+	}
