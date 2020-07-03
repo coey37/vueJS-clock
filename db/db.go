@@ -194,3 +194,93 @@ func GetUserFromUsername(username string) (user models.User, err error) {
 			return
 		}
 	}
+
+	return
+}
+
+// EditUser updates a user.
+func EditUser(ID int, Email, Password, Fname, Lname string, Privileges int) (err error) {
+	_, err = db.Exec("UPDATE users SET email=?, password=?, fname=?, lname=?, priv=? WHERE uuid=?", Email, Password, Fname, Lname, Privileges, ID)
+	return
+}
+
+// EditUserNoPassword updates a user without changing the password.
+func EditUserNoPassword(ID int, Email, Fname, Lname string, Privileges int) (err error) {
+	_, err = db.Exec("UPDATE users SET email=?, fname=?, lname=?, priv=? WHERE uuid=?", Email, Fname, Lname, Privileges, ID)
+	return
+}
+
+// EditSelf updates a user from settings.
+func EditSelf(ID int, Password, Fname, Lname string) (err error) {
+	_, err = db.Exec("UPDATE users SET password=?, fname=?, lname=? WHERE uuid=?", Password, Fname, Lname, ID)
+	return
+}
+
+// EditSelfNoPassword updates a user from settings without changing the password.
+func EditSelfNoPassword(ID int, Fname, Lname string) (err error) {
+	_, err = db.Exec("UPDATE users SET fname=?, lname=? WHERE uuid=?", Fname, Lname, ID)
+	return
+}
+
+// NewUser creates a new user.
+func NewUser(Email, Password, Fname, Lname string, Privileges int) (id int, err error) {
+	creation := time.Now().Unix()
+
+	_, err = db.Exec("INSERT INTO users (email, password, fname, lname, priv, creation) VALUES (?, ?, ?, ?, ?, ?)", Email, Password, Fname, Lname, Privileges, creation)
+	if err != nil {
+		return
+	}
+
+	rows, err := db.Query("SELECT uuid FROM users WHERE email=? AND creation=? ORDER BY uuid DESC", Email, creation)
+	if err != nil {
+		return
+	}
+
+	defer rows.Close()
+
+	rows.Next()
+	err = rows.Scan(&id)
+	return
+}
+
+// DeleteUser deletes a user.
+func DeleteUser(ID int) (err error) {
+	_, err = db.Exec("DELETE FROM users WHERE uuid=?", ID)
+	return
+}
+
+// AddEmailVerification adds an email verification code to the DB.
+func AddEmailVerification(id string, userUUID int, email string) (err error) {
+	exists, err := rowExists("SELECT id FROM email WHERE useruuid=?", userUUID)
+	if err != nil {
+		return
+	}
+	if exists {
+		_, err = db.Exec("DELETE FROM email WHERE useruuid=?", userUUID)
+		if err != nil {
+			return
+		}
+	}
+
+	_, err = db.Exec("INSERT INTO email (uuid, useruuid, email) VALUES (?, ?, ?)", id, userUUID, email)
+	return
+}
+
+// GetEmailVerification retrieves an email verification information.
+func GetEmailVerification(id string) (userUUID int, email string, err error) {
+	rows, err := db.Query("SELECT useruuid, email FROM email WHERE uuid=?", id)
+	if err != nil {
+		return
+	}
+
+	defer rows.Close()
+
+	rows.Next()
+	err = rows.Scan(&userUUID, &email)
+	if err != nil {
+		return
+	}
+
+	if userUUID != 0 && email != "" {
+		_, err = db.Exec("DELETE FROM email WHERE uuid=?", id)
+	}
