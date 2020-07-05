@@ -372,3 +372,104 @@ func GetOffers(userUUID int) (offers []models.Offer, err error) {
 	usernames = make(map[int]string)
 
 	i := 0
+	for rows.Next() {
+		offers = append(offers, models.Offer{})
+		err = rows.Scan(&offers[i].ID, &offers[i].Status, &offers[i].UserUUID, &offers[i].ReceiverUUID, &offers[i].Points, &offers[i].ItemJSON, &offers[i].FloatAPIJSON, &offers[i].Timestamp) // Scan data from query.
+		if err != nil {
+			return
+		}
+
+		err = json.Unmarshal([]byte(offers[i].ItemJSON), &offers[i].Item)
+		if err != nil {
+			return
+		}
+
+		err = json.Unmarshal([]byte(offers[i].FloatAPIJSON), &offers[i].FloatAPI)
+		if err != nil {
+			return
+		}
+
+		// Free RAM from useless JSON.
+		offers[i].ItemJSON = ""
+		offers[i].FloatAPIJSON = ""
+
+		var otherUserUUID int
+		if userUUID == offers[i].UserUUID {
+			otherUserUUID = offers[i].ReceiverUUID
+		} else {
+			otherUserUUID = offers[i].UserUUID
+		}
+
+		if username, ok := usernames[otherUserUUID]; ok {
+			offers[i].OtherUsername = username
+		} else {
+			user, err := GetUserFromID(otherUserUUID)
+			if err != nil {
+				return offers, err
+			}
+
+			offers[i].OtherUsername = user.Username
+			usernames[offers[i].UserUUID] = user.Username
+		}
+
+		i++
+	}
+
+	return
+}
+
+func GetOffer(offerID, userUUID int) (offer models.Offer, err error) {
+	rows, err := db.Query("SELECT status, senderuuid, receiveruuid, points, item, floatapi, timestamp FROM offer WHERE id=?", offerID)
+	if err != nil {
+		return
+	}
+
+	defer rows.Close()
+
+	rows.Next()
+
+	offer.ID = offerID
+	err = rows.Scan(&offer.Status, &offer.UserUUID, &offer.ReceiverUUID, &offer.Points, &offer.ItemJSON, &offer.FloatAPIJSON, &offer.Timestamp) // Scan data from query.
+	if err != nil {
+		return
+	}
+
+	err = json.Unmarshal([]byte(offer.ItemJSON), &offer.Item)
+	if err != nil {
+		return
+	}
+
+	err = json.Unmarshal([]byte(offer.FloatAPIJSON), &offer.FloatAPI)
+	if err != nil {
+		return
+	}
+
+	// Free RAM from useless JSON.
+	offer.ItemJSON = ""
+	offer.FloatAPIJSON = ""
+
+	var otherUserUUID int
+	if userUUID == offer.UserUUID {
+		otherUserUUID = offer.ReceiverUUID
+	} else {
+		otherUserUUID = offer.UserUUID
+	}
+
+	user, err := GetUserFromID(otherUserUUID)
+	if err != nil {
+		return
+	}
+
+	offer.OtherUsername = user.Username
+	return
+}
+
+// DeleteOffer deletes an offer.
+func DeleteOffer(id int) (err error) {
+	_, err = db.Exec("DELETE FROM offer WHERE id=?", id)
+	return
+}
+
+func SetOfferStatus(status, id int) (err error) {
+	_, err = db.Exec("UPDATE offer SET status=? WHERE id=?", status, id)
+	return
