@@ -473,3 +473,4 @@ func DeleteOffer(id int) (err error) {
 func SetOfferStatus(status, id int) (err error) {
 	_, err = db.Exec("UPDATE offer SET status=? WHERE id=?", status, id)
 	return
+}
