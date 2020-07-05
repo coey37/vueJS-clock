@@ -284,3 +284,91 @@ func GetEmailVerification(id string) (userUUID int, email string, err error) {
 	if userUUID != 0 && email != "" {
 		_, err = db.Exec("DELETE FROM email WHERE uuid=?", id)
 	}
+
+	return
+}
+
+// EditSelfEmail updates a user's email after verification.
+func EditSelfEmail(uuid int, email string) (err error) {
+	_, err = db.Exec("UPDATE users SET email=? WHERE uuid=?", email, uuid)
+	return
+}
+
+// AddRecovery adds a password recovery code to the DB.
+func AddRecovery(id string, userUUID int, email string) (err error) {
+	exists, err := rowExists("SELECT id FROM recovery WHERE useruuid=?", userUUID)
+	if err != nil {
+		return
+	}
+	if exists {
+		_, err = db.Exec("DELETE FROM recovery WHERE useruuid=?", userUUID)
+		if err != nil {
+			return
+		}
+	}
+
+	_, err = db.Exec("INSERT INTO recovery (uuid, useruuid, email) VALUES (?, ?, ?)", id, userUUID, email)
+	return
+}
+
+// GetRecovery retrieves a password recovery code from the DB.
+func GetRecovery(id string) (userUUID int, email string, err error) {
+	rows, err := db.Query("SELECT useruuid, email FROM recovery WHERE uuid=?", id)
+	if err != nil {
+		return
+	}
+
+	defer rows.Close()
+
+	rows.Next()
+	err = rows.Scan(&userUUID, &email)
+	if err != nil {
+		return
+	}
+
+	if userUUID != 0 && email != "" {
+		_, err = db.Exec("DELETE FROM recovery WHERE uuid=?", id)
+	}
+
+	return
+}
+
+// EditPassword updates a user's password after password recovery.
+func EditPassword(uuid int, password string) (err error) {
+	_, err = db.Exec("UPDATE users SET password=? WHERE uuid=?", password, uuid)
+	return
+}
+
+func LinkSteam(uuid int, steamID int64) (err error) {
+	_, err = db.Exec("UPDATE users SET steamid=? WHERE uuid=?", steamID, uuid)
+	return
+}
+
+func AddOffer(offer models.Offer) (err error) {
+	item, err := json.Marshal(offer.Item)
+	if err != nil {
+		return
+	}
+
+	floatAPI, err := json.Marshal(offer.FloatAPI)
+	if err != nil {
+		return
+	}
+
+	_, err = db.Exec("INSERT INTO offer (senderuuid, receiveruuid, points, item, floatapi, timestamp) VALUES (?, ?, ?, ?, ?, ?)",
+		offer.UserUUID, offer.ReceiverUUID, offer.Points, string(item[:]), string(floatAPI[:]), offer.Timestamp)
+	return
+}
+
+func GetOffers(userUUID int) (offers []models.Offer, err error) {
+	rows, err := db.Query("SELECT id, status, senderuuid, receiveruuid, points, item, floatapi, timestamp FROM offer WHERE senderuuid=? OR receiveruuid=? ORDER BY id DESC", userUUID, userUUID)
+	if err != nil {
+		return
+	}
+
+	defer rows.Close()
+
+	var usernames map[int]string
+	usernames = make(map[int]string)
+
+	i := 0
