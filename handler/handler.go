@@ -15,4 +15,6 @@ import (
 	"github.com/VolticFroogo/Froogo/helpers"
 	"github.com/VolticFroogo/Froogo/link"
 	"github.com/VolticFroogo/Froogo/middleware"
-	"github.com/VolticFroogo/Froogo
+	"github.com/VolticFroogo/Froogo/middleware/myJWT"
+	"github.com/VolticFroogo/Froogo/models"
+	"github.com/VolticFroogo/Froog
