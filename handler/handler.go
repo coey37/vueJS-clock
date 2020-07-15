@@ -19,4 +19,10 @@ import (
 	"github.com/VolticFroogo/Froogo/models"
 	"github.com/VolticFroogo/Froogo/steam"
 	"github.com/go-recaptcha/recaptcha"
-	"github.com/gorill
+	"github.com/gorilla/context"
+	"github.com/gorilla/mux"
+	"github.com/urfave/negroni"
+)
+
+var (
+	captchaSecret = os.Ge
