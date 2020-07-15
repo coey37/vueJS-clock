@@ -25,4 +25,9 @@ import (
 )
 
 var (
-	captchaSecret = os.Ge
+	captchaSecret = os.Getenv("CAPTCHA_SECRET")
+	captcha       = recaptcha.New(captchaSecret)
+)
+
+type loginData struct {
+	Email, Pa
