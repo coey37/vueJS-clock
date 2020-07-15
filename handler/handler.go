@@ -17,4 +17,6 @@ import (
 	"github.com/VolticFroogo/Froogo/middleware"
 	"github.com/VolticFroogo/Froogo/middleware/myJWT"
 	"github.com/VolticFroogo/Froogo/models"
-	"github.com/VolticFroogo/Froog
+	"github.com/VolticFroogo/Froogo/steam"
+	"github.com/go-recaptcha/recaptcha"
+	"github.com/gorill
