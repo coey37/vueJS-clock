@@ -30,4 +30,9 @@ var (
 )
 
 type loginData struct {
-	Email, Pa
+	Email, Password, Captcha string
+}
+
+// Start the server by handling the web server.
+func Start() {
+	r := m
