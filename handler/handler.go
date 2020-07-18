@@ -35,4 +35,9 @@ type loginData struct {
 
 // Start the server by handling the web server.
 func Start() {
-	r := m
+	r := mux.NewRouter()
+	r.StrictSlash(true)
+
+	r.Handle("/", http.HandlerFunc(index))
+
+	r.H
