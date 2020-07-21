@@ -40,4 +40,6 @@ func Start() {
 
 	r.Handle("/", http.HandlerFunc(index))
 
-	r.H
+	r.Handle("/login", http.HandlerFunc(login)).Methods(http.MethodPost)
+
+	r.Handle("
