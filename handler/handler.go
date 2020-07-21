@@ -44,4 +44,8 @@ func Start() {
 
 	r.Handle("/logout", negroni.New(
 		negroni.HandlerFunc(middleware.Form),
-		negroni.Wrap(http.H
+		negroni.Wrap(http.HandlerFunc(logout)),
+	))
+
+	r.Handle("/panel", negroni.New(
+		negroni.HandlerFunc(middleware.Pa
