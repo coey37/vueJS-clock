@@ -48,4 +48,8 @@ func Start() {
 	))
 
 	r.Handle("/panel", negroni.New(
-		negroni.HandlerFunc(middleware.Pa
+		negroni.HandlerFunc(middleware.Panel),
+		negroni.Wrap(http.HandlerFunc(panel)),
+	))
+
+	r.Handle("/panel/settings/update", htt
