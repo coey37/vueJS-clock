@@ -42,4 +42,6 @@ func Start() {
 
 	r.Handle("/login", http.HandlerFunc(login)).Methods(http.MethodPost)
 
-	r.Handle("
+	r.Handle("/logout", negroni.New(
+		negroni.HandlerFunc(middleware.Form),
+		negroni.Wrap(http.H
