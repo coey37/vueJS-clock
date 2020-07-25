@@ -52,4 +52,7 @@ func Start() {
 		negroni.Wrap(http.HandlerFunc(panel)),
 	))
 
-	r.Handle("/panel/settings/update", htt
+	r.Handle("/panel/settings/update", http.HandlerFunc(users.Settings))
+
+	r.Handle("/panel/user/new", http.HandlerFunc(users.New))
+	r.Handl
