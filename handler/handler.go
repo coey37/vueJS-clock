@@ -55,4 +55,5 @@ func Start() {
 	r.Handle("/panel/settings/update", http.HandlerFunc(users.Settings))
 
 	r.Handle("/panel/user/new", http.HandlerFunc(users.New))
-	r.Handl
+	r.Handle("/panel/user/update", http.HandlerFunc(users.Update))
+	r.Handle("/panel/user/delete", http.H
