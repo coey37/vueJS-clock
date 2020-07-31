@@ -58,4 +58,7 @@ func Start() {
 	r.Handle("/panel/user/update", http.HandlerFunc(users.Update))
 	r.Handle("/panel/user/delete", http.HandlerFunc(users.Delete))
 
-	r.Handle("/link/steam", http.HandlerFunc(link.Steam
+	r.Handle("/link/steam", http.HandlerFunc(link.Steam))
+	r.Handle("/link/steam/callback", negroni.New(
+		negroni.HandlerFunc(middleware.Panel),
+		negroni.Wrap
