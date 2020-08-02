@@ -61,4 +61,7 @@ func Start() {
 	r.Handle("/link/steam", http.HandlerFunc(link.Steam))
 	r.Handle("/link/steam/callback", negroni.New(
 		negroni.HandlerFunc(middleware.Panel),
-		negroni.Wrap
+		negroni.Wrap(http.HandlerFunc(link.SteamCallback)),
+	))
+
+	r.Handle("/panel/trade-offers", negroni
