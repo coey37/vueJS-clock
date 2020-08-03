@@ -71,4 +71,6 @@ func Start() {
 	r.Handle("/panel/trade/{Classid}", negroni.New(
 		negroni.HandlerFunc(middleware.Panel),
 		negroni.Wrap(http.HandlerFunc(trade.Begin)),
-	)).Methods(http.MethodGe
+	)).Methods(http.MethodGet)
+	r.Handle("/panel/trade", http.HandlerFunc(trade.Offer)).Methods(http.MethodPost)
+	r.Handle("/panel/trade
