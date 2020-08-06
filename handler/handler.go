@@ -73,4 +73,5 @@ func Start() {
 		negroni.Wrap(http.HandlerFunc(trade.Begin)),
 	)).Methods(http.MethodGet)
 	r.Handle("/panel/trade", http.HandlerFunc(trade.Offer)).Methods(http.MethodPost)
-	r.Handle("/panel/trade
+	r.Handle("/panel/trade/accept", http.HandlerFunc(trade.Accept))
+	r.Handle("/panel/trade/cancel", http.Handl
