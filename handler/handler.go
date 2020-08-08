@@ -78,4 +78,6 @@ func Start() {
 
 	r.Handle("/verify-email/{code}", http.HandlerFunc(users.VerifyEmail))
 	r.Handle("/forgot-password", http.HandlerFunc(recovery.Begin)).Methods(http.MethodPost)
-	r.Handle("/
+	r.Handle("/password-recovery", http.HandlerFunc(recovery.End)).Methods(http.MethodPost)
+
+	r.PathPrefix("/").
