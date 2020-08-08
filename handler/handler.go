@@ -74,4 +74,7 @@ func Start() {
 	)).Methods(http.MethodGet)
 	r.Handle("/panel/trade", http.HandlerFunc(trade.Offer)).Methods(http.MethodPost)
 	r.Handle("/panel/trade/accept", http.HandlerFunc(trade.Accept))
-	r.Handle("/panel/trade/cancel", http.Handl
+	r.Handle("/panel/trade/cancel", http.HandlerFunc(trade.Cancel))
+
+	r.Handle("/verify-email/{code}", http.HandlerFunc(users.VerifyEmail))
+	r.Handle("/f
