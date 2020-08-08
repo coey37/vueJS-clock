@@ -77,4 +77,5 @@ func Start() {
 	r.Handle("/panel/trade/cancel", http.HandlerFunc(trade.Cancel))
 
 	r.Handle("/verify-email/{code}", http.HandlerFunc(users.VerifyEmail))
-	r.Handle("/f
+	r.Handle("/forgot-password", http.HandlerFunc(recovery.Begin)).Methods(http.MethodPost)
+	r.Handle("/
