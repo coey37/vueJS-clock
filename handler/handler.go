@@ -80,4 +80,7 @@ func Start() {
 	r.Handle("/forgot-password", http.HandlerFunc(recovery.Begin)).Methods(http.MethodPost)
 	r.Handle("/password-recovery", http.HandlerFunc(recovery.End)).Methods(http.MethodPost)
 
-	r.PathPrefix("/").
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
+
+	log.Printf("Server started...")
+	http.Li
