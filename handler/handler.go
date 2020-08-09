@@ -83,4 +83,7 @@ func Start() {
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
 
 	log.Printf("Server started...")
-	http.Li
+	http.ListenAndServe(":82", r)
+}
+
+func index(w http.ResponseWriter, r *http.Request) {
