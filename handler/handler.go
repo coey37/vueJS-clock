@@ -94,4 +94,6 @@ func index(w http.ResponseWriter, r *http.Request) {
 	}
 
 	variables := models.TemplateVariables{}
-	err = t.Execute(w, variables) // Execu
+	err = t.Execute(w, variables) // Execute temmplate with variables
+	if err != nil {
+		helpers.ThrowErr(w, r, "Template ex
