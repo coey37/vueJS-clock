@@ -89,4 +89,9 @@ func Start() {
 func index(w http.ResponseWriter, r *http.Request) {
 	t, err := template.ParseFiles("handler/templates/index.html", "handler/templates/nested.html") // Parse the HTML pages
 	if err != nil {
-		helpers.ThrowErr(w, r, "Template parsing error", e
+		helpers.ThrowErr(w, r, "Template parsing error", err)
+		return
+	}
+
+	variables := models.TemplateVariables{}
+	err = t.Execute(w, variables) // Execu
