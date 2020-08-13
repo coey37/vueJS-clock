@@ -96,4 +96,9 @@ func index(w http.ResponseWriter, r *http.Request) {
 	variables := models.TemplateVariables{}
 	err = t.Execute(w, variables) // Execute temmplate with variables
 	if err != nil {
-		helpers.ThrowErr(w, r, "Template ex
+		helpers.ThrowErr(w, r, "Template execution error", err)
+	}
+}
+
+func panel(w http.ResponseWriter, r *http.Request) {
+	uuid
