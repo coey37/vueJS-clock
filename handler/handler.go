@@ -101,4 +101,8 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func panel(w http.ResponseWriter, r *http.Request) {
-	uuid
+	uuidString := context.Get(r, "uuid").(string)
+
+	uuid, err := strconv.Atoi(uuidString)
+	if err != nil {
+	
