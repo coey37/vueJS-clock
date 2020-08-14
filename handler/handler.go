@@ -105,4 +105,8 @@ func panel(w http.ResponseWriter, r *http.Request) {
 
 	uuid, err := strconv.Atoi(uuidString)
 	if err != nil {
-	
+		helpers.ThrowErr(w, r, "Error converting string to int", err)
+		return
+	}
+
+	user, err :
