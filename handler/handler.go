@@ -109,4 +109,6 @@ func panel(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	user, err :
+	user, err := db.GetUserFromID(uuid)
+	if err != nil {
+		helpers.ThrowErr(w, r, "Error getting user f
