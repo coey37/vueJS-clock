@@ -118,4 +118,5 @@ func panel(w http.ResponseWriter, r *http.Request) {
 	execPanel(w, r, user, "panel")
 }
 
-func execPanel(w h
+func execPanel(w http.ResponseWriter, r *http.Request, user models.User, templateName string) {
+	t, err := temp
