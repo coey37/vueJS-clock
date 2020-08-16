@@ -119,4 +119,4 @@ func panel(w http.ResponseWriter, r *http.Request) {
 }
 
 func execPanel(w http.ResponseWriter, r *http.Request, user models.User, templateName string) {
-	t, err := temp
+	t, err := template.ParseFiles("handler/templates/panel/"+templateName+".html", "handler/templates/n
