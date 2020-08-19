@@ -121,4 +121,9 @@ func panel(w http.ResponseWriter, r *http.Request) {
 func execPanel(w http.ResponseWriter, r *http.Request, user models.User, templateName string) {
 	t, err := template.ParseFiles("handler/templates/panel/"+templateName+".html", "handler/templates/nested.html") // Parse the HTML pages
 	if err != nil {
-		helpers.ThrowErr(w, r, "Error template 
+		helpers.ThrowErr(w, r, "Error template parsing", err)
+		return
+	}
+
+	csrfSecret, err := r.Cookie("csrfSecret")
+	if err != nil {
