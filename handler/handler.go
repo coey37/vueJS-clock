@@ -127,3 +127,8 @@ func execPanel(w http.ResponseWriter, r *http.Request, user models.User, templat
 
 	csrfSecret, err := r.Cookie("csrfSecret")
 	if err != nil {
+		helpers.ThrowErr(w, r, "Error reading cookie", err)
+		return
+	}
+
+	var inventory models.Ste
