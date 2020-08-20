@@ -134,4 +134,6 @@ func execPanel(w http.ResponseWriter, r *http.Request, user models.User, templat
 	var inventory models.SteamInventory
 	if user.SteamID != 0 {
 		// Get Steam inventory.
-		inventory, err 
+		inventory, err = steam.GetInventory(user.SteamID)
+		if err != nil {
+			helpers.ThrowErr(w, r, "Error Getting Steam inventory", er
