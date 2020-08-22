@@ -143,3 +143,7 @@ func execPanel(w http.ResponseWriter, r *http.Request, user models.User, templat
 
 	variables := models.TemplateVariables{
 		User:       user,
+		CsrfSecret: csrfSecret.Value,
+		Inventory:  inventory,
+	}
+	err = t.Execute(w, var
