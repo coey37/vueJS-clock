@@ -146,4 +146,6 @@ func execPanel(w http.ResponseWriter, r *http.Request, user models.User, templat
 		CsrfSecret: csrfSecret.Value,
 		Inventory:  inventory,
 	}
-	err = t.Execute(w, var
+	err = t.Execute(w, variables) // Execute temmplate with variables
+	if err != nil {
+		helpers.ThrowErr(w, r, "Te
