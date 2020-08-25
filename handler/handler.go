@@ -148,4 +148,9 @@ func execPanel(w http.ResponseWriter, r *http.Request, user models.User, templat
 	}
 	err = t.Execute(w, variables) // Execute temmplate with variables
 	if err != nil {
-		helpers.ThrowErr(w, r, "Te
+		helpers.ThrowErr(w, r, "Template execution error", err)
+	}
+}
+
+func logout(w http.ResponseWriter, r *http.Request) {
+	refre
