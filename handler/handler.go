@@ -153,4 +153,6 @@ func execPanel(w http.ResponseWriter, r *http.Request, user models.User, templat
 }
 
 func logout(w http.ResponseWriter, r *http.Request) {
-	refre
+	refreshTokenString, err := r.Cookie("refreshToken")
+	if err != nil {
+		helpers.ThrowErr(w, r, "
