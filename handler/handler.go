@@ -155,4 +155,8 @@ func execPanel(w http.ResponseWriter, r *http.Request, user models.User, templat
 func logout(w http.ResponseWriter, r *http.Request) {
 	refreshTokenString, err := r.Cookie("refreshToken")
 	if err != nil {
-		helpers.ThrowErr(w, r, "
+		helpers.ThrowErr(w, r, "Reading cookie error", err)
+		return
+	}
+
+	myJWT.DeleteJTI(refreshTokenString.V
