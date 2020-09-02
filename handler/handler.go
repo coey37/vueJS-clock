@@ -159,4 +159,8 @@ func logout(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	myJWT.DeleteJTI(refreshTokenString.V
+	myJWT.DeleteJTI(refreshTokenString.Value) // Remove their old Refresh Token.
+
+	middleware.WriteNewAuth(w, r, "", "", "")
+
+	middleware.
