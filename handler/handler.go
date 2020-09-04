@@ -167,4 +167,5 @@ func logout(w http.ResponseWriter, r *http.Request) {
 }
 
 func login(w http.ResponseWriter, r *http.Request) {
-	var credentials logi
+	var credentials loginData                           // Create struct to store data.
+	err := json.NewDecoder
