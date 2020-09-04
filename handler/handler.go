@@ -168,4 +168,6 @@ func logout(w http.ResponseWriter, r *http.Request) {
 
 func login(w http.ResponseWriter, r *http.Request) {
 	var credentials loginData                           // Create struct to store data.
-	err := json.NewDecoder
+	err := json.NewDecoder(r.Body).Decode(&credentials) // Decode response to struct.
+	if err != nil {
+		helpers.SuccessRes
