@@ -163,4 +163,8 @@ func logout(w http.ResponseWriter, r *http.Request) {
 
 	middleware.WriteNewAuth(w, r, "", "", "")
 
-	middleware.
+	middleware.RedirectToLogin(w, r)
+}
+
+func login(w http.ResponseWriter, r *http.Request) {
+	var credentials logi
