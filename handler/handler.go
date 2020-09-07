@@ -172,4 +172,9 @@ func login(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		helpers.SuccessResponse(false, w, r)
 		helpers.ThrowErr(w, r, "JSON decoding error", err)
-		retu
+		return
+	}
+
+	if credentials.Captcha == "" {
+		helpers.SuccessResponse(false, w, r)
+		
