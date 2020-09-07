@@ -179,4 +179,5 @@ func login(w http.ResponseWriter, r *http.Request) {
 		helpers.SuccessResponse(false, w, r)
 		return // There is no captcha response.
 	}
-	captchaSuccess, err := captcha.Verify(credent
+	captchaSuccess, err := captcha.Verify(credentials.Captcha, r.Header.Get("CF-Connecting-IP")) // Check the captcha.
+	if err != nil
