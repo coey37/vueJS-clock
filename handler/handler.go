@@ -192,4 +192,6 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 	user, err := db.GetUserFromEmail(credentials.Email)
 	if err != nil {
-		hel
+		helpers.SuccessResponse(false, w, r)
+		helpers.ThrowErr(w, r, "Getting user from DB error", err)
+		r
