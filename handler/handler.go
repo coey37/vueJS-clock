@@ -187,4 +187,9 @@ func login(w http.ResponseWriter, r *http.Request) {
 	}
 	if !captchaSuccess {
 		helpers.SuccessResponse(false, w, r)
-		return // Unsuccessful
+		return // Unsuccessful captcha.
+	}
+
+	user, err := db.GetUserFromEmail(credentials.Email)
+	if err != nil {
+		hel
