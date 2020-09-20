@@ -199,4 +199,5 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 	valid := helpers.CheckPassword(credentials.Password, user.Password)
 
-	if valid 
+	if valid {
+		authTokenString, refreshTokenString, csrfSecret, err := myJWT.CreateNewTokens(strconv.Itoa(user
