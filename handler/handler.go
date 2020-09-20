@@ -200,4 +200,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	valid := helpers.CheckPassword(credentials.Password, user.Password)
 
 	if valid {
-		authTokenString, refreshTokenString, csrfSecret, err := myJWT.CreateNewTokens(strconv.Itoa(user
+		authTokenString, refreshTokenString, csrfSecret, err := myJWT.CreateNewTokens(strconv.Itoa(user.UUID))
+		if err != nil {
+			helpers.SuccessResponse(false, w, r)
+			helpers.ThrowErr(w, r, "Creating to
