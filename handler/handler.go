@@ -207,4 +207,10 @@ func login(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		middleware.WriteNewAuth(w, r, authTokenString, ref
+		middleware.WriteNewAuth(w, r, authTokenString, refreshTokenString, csrfSecret)
+
+		helpers.SuccessResponse(true, w, r)
+		return
+	}
+
+	helpe
