@@ -203,4 +203,8 @@ func login(w http.ResponseWriter, r *http.Request) {
 		authTokenString, refreshTokenString, csrfSecret, err := myJWT.CreateNewTokens(strconv.Itoa(user.UUID))
 		if err != nil {
 			helpers.SuccessResponse(false, w, r)
-			helpers.ThrowErr(w, r, "Creating to
+			helpers.ThrowErr(w, r, "Creating tokens error", err)
+			return
+		}
+
+		middleware.WriteNewAuth(w, r, authTokenString, ref
