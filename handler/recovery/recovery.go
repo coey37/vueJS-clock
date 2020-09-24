@@ -126,3 +126,67 @@ func SendEmail(id, email string) (err error) {
 			},
 			Subject: &ses.Content{
 				Charset: aws.String("UTF-8"),
+				Data:    aws.String("Password Recovery"),
+			},
+		},
+		Source: aws.String("noreply@froogo.co.uk"),
+	}
+
+	// Attempt to send the email.
+	_, err = svc.SendEmail(input)
+	return
+}
+
+// End is the final function which is called when a user submits their new password.
+func End(w http.ResponseWriter, r *http.Request) {
+	var data message                             // Create struct to store data.
+	err := json.NewDecoder(r.Body).Decode(&data) // Decode response to struct.
+	if err != nil {
+		helpers.JSONResponse(response{Code: Internal}, w)
+		helpers.ThrowErr(w, r, "JSON decoding error", err)
+		return
+	}
+
+	if data.Captcha == "" {
+		helpers.JSONResponse(response{Code: Recaptcha}, w)
+		return // There is no captcha response.
+	}
+	captchaSuccess, err := captcha.Verify(data.Captcha, r.Header.Get("CF-Connecting-IP")) // Check the captcha.
+	if err != nil {
+		helpers.JSONResponse(response{Code: Recaptcha}, w)
+		helpers.ThrowErr(w, r, "Recaptcha error", err)
+		return
+	}
+	if !captchaSuccess {
+		helpers.JSONResponse(response{Code: Recaptcha}, w)
+		return // Unsuccessful captcha.
+	}
+
+	userUUID, email, err := db.GetRecovery(data.Code)
+	if err != nil {
+		helpers.JSONResponse(response{Code: Internal}, w)
+		helpers.ThrowErr(w, r, "Getting recovery error", err)
+		return
+	}
+
+	if userUUID == 0 || email == "" {
+		helpers.JSONResponse(response{Code: Internal}, w)
+		return
+	}
+
+	hash, err := helpers.HashPassword(data.Password)
+	if err != nil {
+		helpers.JSONResponse(response{Code: Internal}, w)
+		helpers.ThrowErr(w, r, "Hashing password error", err)
+		return
+	}
+
+	err = db.EditPassword(userUUID, hash)
+	if err != nil {
+		helpers.JSONResponse(response{Code: Internal}, w)
+		helpers.ThrowErr(w, r, "Editing password error", err)
+		return
+	}
+
+	helpers.JSONResponse(response{Code: Success}, w)
+}
