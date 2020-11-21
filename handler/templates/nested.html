@@ -35,4 +35,10 @@
 
 <!-- Logout form for Navbar -->
 <form hidden name="logout" action="/logout" method="POST" id="logout">
-    <input hidden name="csrfSecr
+    <input hidden name="csrfSecret" value="{{ .CsrfSecret }}"/>
+</form>
+{{ end }}
+
+{{ define "global-css" }}
+<!-- Import CSS -->
+<lin
