@@ -13,4 +13,6 @@
         {{ template "navbar" . }}
 
         <br>
-        <div class=
+        <div class="container">
+            {{ if (eq .User.SteamID 0) }}
+                <p>To get 
