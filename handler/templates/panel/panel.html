@@ -16,4 +16,7 @@
         <div class="container">
             {{ if (eq .User.SteamID 0) }}
                 <p>To get started please link your steam account.</p>
-                <a href="/link/steam"><img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png" alt="Sign in through S
+                <a href="/link/steam"><img src="https://steamcommunity-a.akamaihd.net/public/images/signinthroughsteam/sits_01.png" alt="Sign in through Steam"></a>
+            {{ else }}
+                {{ range .Inventory.Descriptions }}
+    
