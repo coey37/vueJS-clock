@@ -21,4 +21,5 @@
                 {{ range .Inventory.Descriptions }}
                     <p>
                         {{ .Name }}<br>
-                  
+                        {{ if .HasWear }}{{ .Wear }}<br>{{ end }}
+                        <span sty
