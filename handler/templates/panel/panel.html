@@ -22,4 +22,5 @@
                     <p>
                         {{ .Name }}<br>
                         {{ if .HasWear }}{{ .Wear }}<br>{{ end }}
-                        <span sty
+                        <span style="color: #{{ .Colour }}">{{ .Type }}</span><br>
+                        {{ if .Tradable
