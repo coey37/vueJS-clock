@@ -23,4 +23,5 @@
                         {{ .Name }}<br>
                         {{ if .HasWear }}{{ .Wear }}<br>{{ end }}
                         <span style="color: #{{ .Colour }}">{{ .Type }}</span><br>
-                        {{ if .Tradable
+                        {{ if .Tradable }}<a href="/panel/trade/{{ .Classid }}">Trade</a>{{ else }}Not tradable{{ end }}
+ 
