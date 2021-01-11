@@ -15,4 +15,6 @@
         <br>
         <div class="container">
             <p class="flow-text">Trade Offers</p>
-            {{
+            {{ range .Offers }}
+                <p class="trade-offer" data-id="{{ .ID }}">
+                    <span class="s
