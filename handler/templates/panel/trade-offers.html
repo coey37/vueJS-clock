@@ -17,4 +17,4 @@
             <p class="flow-text">Trade Offers</p>
             {{ range .Offers }}
                 <p class="trade-offer" data-id="{{ .ID }}">
-                    <span class="s
+                    <span class="status">{{ if (eq .Status 0) }}Offer pending{{ else if (eq .Status 1) }}Offer accepted{
