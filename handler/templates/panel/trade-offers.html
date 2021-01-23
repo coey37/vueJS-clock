@@ -18,4 +18,5 @@
             {{ range .Offers }}
                 <p class="trade-offer" data-id="{{ .ID }}">
                     <span class="status">{{ if (eq .Status 0) }}Offer pending{{ else if (eq .Status 1) }}Offer accepted{{ end }}</span><br>
-                    {{ if .FromUser $.User.UUID }}Trade fro
+                    {{ if .FromUser $.User.UUID }}Trade from you to {{ .OtherUsername }}{{ else }}Trade from {{ .OtherUsername }} to you{{ end }}<br>
+     
