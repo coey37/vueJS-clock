@@ -22,4 +22,6 @@
                     {{ if .FromUser $.User.UUID }}You will give {{ .OtherUsername }} your{{ else }}{{ .OtherUsername }} will give you their{{ end }}: {{ .Item.MarketName }}<br>
                     {{ if .FromUser $.User.UUID }}{{ .OtherUsername }} will give you {{ .Points }} points{{ else }}You will give {{ .OtherUsername }} {{ .Points }} points{{ end }}<br>
                     Float: {{ .FloatAPI.Iteminfo.Floatvalue }}<br>
-                    Paint seed: {{ .FloatAPI.Itemin
+                    Paint seed: {{ .FloatAPI.Iteminfo.Paintseed }}<br>
+                    {{ if (eq .Status 0) }}
+                        {{ if .F
