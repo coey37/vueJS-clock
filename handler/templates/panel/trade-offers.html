@@ -20,4 +20,5 @@
                     <span class="status">{{ if (eq .Status 0) }}Offer pending{{ else if (eq .Status 1) }}Offer accepted{{ end }}</span><br>
                     {{ if .FromUser $.User.UUID }}Trade from you to {{ .OtherUsername }}{{ else }}Trade from {{ .OtherUsername }} to you{{ end }}<br>
                     {{ if .FromUser $.User.UUID }}You will give {{ .OtherUsername }} your{{ else }}{{ .OtherUsername }} will give you their{{ end }}: {{ .Item.MarketName }}<br>
-                    {{ if .FromUser $.User.UUID }}{{ .OtherUsername }} will give you {{ .Points }} points{{ else }}You 
+                    {{ if .FromUser $.User.UUID }}{{ .OtherUsername }} will give you {{ .Points }} points{{ else }}You will give {{ .OtherUsername }} {{ .Points }} points{{ end }}<br>
+                    Fl
