@@ -26,4 +26,5 @@
                     {{ if (eq .Status 0) }}
                         {{ if .FromUser $.User.UUID }}
                             <a class="waves-effect waves-light btn red cancel-button">Cancel trade<i class="material-icons right">delete_forever</i></a>
-                        {{ e
+                        {{ else }}
+                            <a class="waves-effect waves-light btn accept-button">Ac
