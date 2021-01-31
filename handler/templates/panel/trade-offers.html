@@ -24,4 +24,5 @@
                     Float: {{ .FloatAPI.Iteminfo.Floatvalue }}<br>
                     Paint seed: {{ .FloatAPI.Iteminfo.Paintseed }}<br>
                     {{ if (eq .Status 0) }}
-                        {{ if .F
+                        {{ if .FromUser $.User.UUID }}
+                            <a class="waves-effect waves-light btn red cancel-button">
