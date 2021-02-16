@@ -30,4 +30,6 @@
                             <a class="waves-effect waves-light btn accept-button">Accept Trade<i class="material-icons right">check_circle</i></a>
                             <a class="waves-effect waves-light btn red cancel-button">Decline Trade<i class="material-icons right">remove_circle</i></a>
                         {{ end }}
-                    {{ else if (eq .Sta
+                    {{ else if (eq .Status 1) }}
+                        {{ if .FromUser $.User.UUID }}
+           
