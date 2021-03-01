@@ -17,4 +17,6 @@
             <p class="flow-text">Trade {{ .Item.MarketName }}</p>
 
             {{ if .Inspectable }}
-                <
+                <p>Float: {{ .FloatAPI.Iteminfo.Floatvalue }}</p>
+            {{ end }}
+       
