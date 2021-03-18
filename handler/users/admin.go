@@ -13,4 +13,8 @@ import (
 )
 
 type edit struct {
-	ID, Privileges                  
+	ID, Privileges                            int
+	CsrfSecret, Email, Password, Fname, Lname string
+}
+
+// Update 
