@@ -17,4 +17,5 @@ type edit struct {
 	CsrfSecret, Email, Password, Fname, Lname string
 }
 
-// Update 
+// Update is the handler for the update user request.
+func Update(w http.ResponseWriter, r *http.Requ
