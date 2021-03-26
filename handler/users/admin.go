@@ -20,4 +20,6 @@ type edit struct {
 // Update is the handler for the update user request.
 func Update(w http.ResponseWriter, r *http.Request) {
 	var data edit                                // Create struct to store data.
-	err :=
+	err := json.NewDecoder(r.Body).Decode(&data) // Decode response to struct.
+	if err != nil {
+		helpers.SuccessRespo
