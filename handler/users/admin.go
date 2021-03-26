@@ -22,4 +22,9 @@ func Update(w http.ResponseWriter, r *http.Request) {
 	var data edit                                // Create struct to store data.
 	err := json.NewDecoder(r.Body).Decode(&data) // Decode response to struct.
 	if err != nil {
-		helpers.SuccessRespo
+		helpers.SuccessResponse(false, w, r)
+		helpers.ThrowErr(w, r, "JSON decoding error", err)
+		return
+	}
+
+	if !m
