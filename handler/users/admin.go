@@ -18,4 +18,6 @@ type edit struct {
 }
 
 // Update is the handler for the update user request.
-func Update(w http.ResponseWriter, r *http.Requ
+func Update(w http.ResponseWriter, r *http.Request) {
+	var data edit                                // Create struct to store data.
+	err :=
