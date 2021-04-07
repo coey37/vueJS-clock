@@ -27,4 +27,5 @@ func Update(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if !m
+	if !middleware.AJAX(w, r, models.AJAXData{CsrfSecret: data.CsrfSecret}) {
+		// Failed m
