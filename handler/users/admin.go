@@ -33,4 +33,6 @@ func Update(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	uuidString := 
+	uuidString := context.Get(r, "uuid").(string)
+	uuid, err := strconv.Atoi(uuidString)
+	if err != ni
