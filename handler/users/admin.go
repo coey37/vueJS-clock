@@ -28,4 +28,9 @@ func Update(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if !middleware.AJAX(w, r, models.AJAXData{CsrfSecret: data.CsrfSecret}) {
-		// Failed m
+		// Failed middleware (invalid credentials)
+		helpers.SuccessResponse(false, w, r)
+		return
+	}
+
+	uuidString := 
