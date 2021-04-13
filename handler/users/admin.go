@@ -35,4 +35,6 @@ func Update(w http.ResponseWriter, r *http.Request) {
 
 	uuidString := context.Get(r, "uuid").(string)
 	uuid, err := strconv.Atoi(uuidString)
-	if err != ni
+	if err != nil {
+		helpers.SuccessResponse(false, w, r)
+		helpers.ThrowErr(w, r, "Error converting str
