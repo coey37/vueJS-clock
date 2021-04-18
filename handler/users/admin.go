@@ -42,4 +42,8 @@ func Update(w http.ResponseWriter, r *http.Request) {
 
 	user, err := db.GetUserFromID(uuid)
 	if err != nil {
-		helpers.Su
+		helpers.SuccessResponse(false, w, r)
+		helpers.ThrowErr(w, r, "Error getting user from ID", err)
+	}
+
+	if
