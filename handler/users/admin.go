@@ -48,4 +48,9 @@ func Update(w http.ResponseWriter, r *http.Request) {
 
 	if user.Priv != models.PrivSuperAdmin {
 		// User isn't a super admin.
-		helpers.SuccessRespo
+		helpers.SuccessResponse(false, w, r)
+		return
+	}
+
+	if data.Password == "" {
+		err = db.EditUserNoPassword(da
