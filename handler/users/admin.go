@@ -46,4 +46,6 @@ func Update(w http.ResponseWriter, r *http.Request) {
 		helpers.ThrowErr(w, r, "Error getting user from ID", err)
 	}
 
-	if
+	if user.Priv != models.PrivSuperAdmin {
+		// User isn't a super admin.
+		helpers.SuccessRespo
