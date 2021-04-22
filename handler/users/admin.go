@@ -53,4 +53,6 @@ func Update(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if data.Password == "" {
-		err = db.EditUserNoPassword(da
+		err = db.EditUserNoPassword(data.ID, data.Email, data.Fname, data.Lname, data.Privileges)
+		if err != nil {
+			helpers.Succe
