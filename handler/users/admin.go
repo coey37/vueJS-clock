@@ -55,4 +55,8 @@ func Update(w http.ResponseWriter, r *http.Request) {
 	if data.Password == "" {
 		err = db.EditUserNoPassword(data.ID, data.Email, data.Fname, data.Lname, data.Privileges)
 		if err != nil {
-			helpers.Succe
+			helpers.SuccessResponse(false, w, r)
+			helpers.ThrowErr(w, r, "Editing user (no password) error", err)
+			return
+		}
+	} else
