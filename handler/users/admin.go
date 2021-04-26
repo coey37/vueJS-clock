@@ -59,4 +59,7 @@ func Update(w http.ResponseWriter, r *http.Request) {
 			helpers.ThrowErr(w, r, "Editing user (no password) error", err)
 			return
 		}
-	} else
+	} else {
+		password, err := helpers.HashPassword(data.Password)
+		if err != nil {
+			helpers.SuccessResponse(false,
