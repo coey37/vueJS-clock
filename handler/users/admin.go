@@ -62,4 +62,9 @@ func Update(w http.ResponseWriter, r *http.Request) {
 	} else {
 		password, err := helpers.HashPassword(data.Password)
 		if err != nil {
-			helpers.SuccessResponse(false,
+			helpers.SuccessResponse(false, w, r)
+			helpers.ThrowErr(w, r, "Hashing password error", err)
+			return
+		}
+
+		err =
