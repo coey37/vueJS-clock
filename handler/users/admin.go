@@ -67,4 +67,6 @@ func Update(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		err =
+		err = db.EditUser(data.ID, data.Email, password, data.Fname, data.Lname, data.Privileges)
+		if err != nil {
+			helpe
