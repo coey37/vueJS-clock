@@ -83,4 +83,6 @@ func Update(w http.ResponseWriter, r *http.Request) {
 
 // New is the handler for the new user request.
 func New(w http.ResponseWriter, r *http.Request) {
-	var data edit                                // Create struct to sto
+	var data edit                                // Create struct to store data.
+	err := json.NewDecoder(r.Body).Decode(&data) // Decode response to struct.
+	if err != 
