@@ -82,4 +82,5 @@ func Update(w http.ResponseWriter, r *http.Request) {
 }
 
 // New is the handler for the new user request.
-func New(w http.ResponseWriter, r *h
+func New(w http.ResponseWriter, r *http.Request) {
+	var data edit                                // Create struct to sto
