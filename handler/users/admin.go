@@ -77,4 +77,9 @@ func Update(w http.ResponseWriter, r *http.Request) {
 
 	helpers.SuccessResponse(true, w, r)
 	if err != nil {
-		helpers.ThrowErr(w, r, "JSON encoding erro
+		helpers.ThrowErr(w, r, "JSON encoding error", err)
+	}
+}
+
+// New is the handler for the new user request.
+func New(w http.ResponseWriter, r *h
