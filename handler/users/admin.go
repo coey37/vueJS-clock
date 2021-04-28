@@ -72,4 +72,9 @@ func Update(w http.ResponseWriter, r *http.Request) {
 			helpers.SuccessResponse(false, w, r)
 			helpers.ThrowErr(w, r, "Editing user error", err)
 			return
-		
+		}
+	}
+
+	helpers.SuccessResponse(true, w, r)
+	if err != nil {
+		helpers.ThrowErr(w, r, "JSON encoding erro
