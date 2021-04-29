@@ -85,4 +85,6 @@ func Update(w http.ResponseWriter, r *http.Request) {
 func New(w http.ResponseWriter, r *http.Request) {
 	var data edit                                // Create struct to store data.
 	err := json.NewDecoder(r.Body).Decode(&data) // Decode response to struct.
-	if err != 
+	if err != nil {
+		helpers.ThrowErr(w, r, "JSON decoding error", err)
+		helpers.SuccessResponse(
