@@ -87,4 +87,8 @@ func New(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(&data) // Decode response to struct.
 	if err != nil {
 		helpers.ThrowErr(w, r, "JSON decoding error", err)
-		helpers.SuccessResponse(
+		helpers.SuccessResponse(false, w, r)
+		return
+	}
+
+	if !middleware.AJAX(w, r, models.AJAXData{CsrfSecret: data.C
