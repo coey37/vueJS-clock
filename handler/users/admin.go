@@ -91,4 +91,7 @@ func New(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if !middleware.AJAX(w, r, models.AJAXData{CsrfSecret: data.C
+	if !middleware.AJAX(w, r, models.AJAXData{CsrfSecret: data.CsrfSecret}) {
+		// Failed middleware (invalid credentials)
+		helpers.SuccessResponse(false, w, r)
+		r
