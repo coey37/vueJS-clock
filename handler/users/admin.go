@@ -101,4 +101,9 @@ func New(w http.ResponseWriter, r *http.Request) {
 	uuid, err := strconv.Atoi(uuidString)
 	if err != nil {
 		helpers.SuccessResponse(false, w, r)
-		helpers.ThrowErr(w, r, "Error converting string t
+		helpers.ThrowErr(w, r, "Error converting string to int", err)
+	}
+
+	user, err := db.GetUserFromID(uuid)
+	if err != nil {
+		helpers.SuccessRespon
