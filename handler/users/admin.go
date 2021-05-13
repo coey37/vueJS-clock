@@ -112,4 +112,9 @@ func New(w http.ResponseWriter, r *http.Request) {
 
 	if user.Priv != models.PrivSuperAdmin {
 		// User isn't a super admin.
-		helpers.SuccessRespo
+		helpers.SuccessResponse(false, w, r)
+		return
+	}
+
+	password, err := helpers.HashPassword(data.Password)
+	if err !
