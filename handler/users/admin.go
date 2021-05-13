@@ -131,4 +131,8 @@ func New(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err = helpers.JSONResponse(models.ResponseWithIDInt{
-	
+		Success: true,
+		ID:      id,
+	}, w)
+	if err != nil {
+		helpers.ThrowErr(w, r, "Sending 
