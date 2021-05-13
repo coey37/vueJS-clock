@@ -120,3 +120,7 @@ func New(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		helpers.SuccessResponse(false, w, r)
 		helpers.ThrowErr(w, r, "Hashing password error", err)
+		return
+	}
+
+	id, err := db.NewUser(data.Email, password, data.Fname, data.Lname, dat
