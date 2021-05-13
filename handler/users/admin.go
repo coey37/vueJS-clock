@@ -126,4 +126,9 @@ func New(w http.ResponseWriter, r *http.Request) {
 	id, err := db.NewUser(data.Email, password, data.Fname, data.Lname, data.Privileges)
 	if err != nil {
 		helpers.SuccessResponse(false, w, r)
-		helpers.Thro
+		helpers.ThrowErr(w, r, "Creating user error", err)
+		return
+	}
+
+	err = helpers.JSONResponse(models.ResponseWithIDInt{
+	
