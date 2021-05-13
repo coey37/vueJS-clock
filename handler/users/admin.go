@@ -117,4 +117,6 @@ func New(w http.ResponseWriter, r *http.Request) {
 	}
 
 	password, err := helpers.HashPassword(data.Password)
-	if err !
+	if err != nil {
+		helpers.SuccessResponse(false, w, r)
+		helpers.ThrowErr(w, r, "Hashing password error", err)
