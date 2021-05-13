@@ -123,4 +123,7 @@ func New(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	id, err := db.NewUser(data.Email, password, data.Fname, data.Lname, dat
+	id, err := db.NewUser(data.Email, password, data.Fname, data.Lname, data.Privileges)
+	if err != nil {
+		helpers.SuccessResponse(false, w, r)
+		helpers.Thro
