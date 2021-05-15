@@ -142,4 +142,5 @@ func New(w http.ResponseWriter, r *http.Request) {
 
 // Delete is the handler for the delete user request.
 func Delete(w http.ResponseWriter, r *http.Request) {
-	var data edit                                // Create struct
+	var data edit                                // Create struct to store data.
+	err := json.NewDecoder(r.Body).Decode(&data) // Decode response 
