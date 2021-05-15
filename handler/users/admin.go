@@ -135,4 +135,10 @@ func New(w http.ResponseWriter, r *http.Request) {
 		ID:      id,
 	}, w)
 	if err != nil {
-		helpers.ThrowErr(w, r, "Sending 
+		helpers.ThrowErr(w, r, "Sending JSON response error", err)
+		return
+	}
+}
+
+// Delete is the handler for the delete user request.
+func Delete(w h
