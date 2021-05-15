@@ -141,4 +141,5 @@ func New(w http.ResponseWriter, r *http.Request) {
 }
 
 // Delete is the handler for the delete user request.
-func Delete(w h
+func Delete(w http.ResponseWriter, r *http.Request) {
+	var data edit                                // Create struct
