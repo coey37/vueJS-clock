@@ -146,4 +146,8 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(&data) // Decode response to struct.
 	if err != nil {
 		helpers.SuccessResponse(false, w, r)
-		helpers.ThrowErr(w, r, "JSON d
+		helpers.ThrowErr(w, r, "JSON decoding error", err)
+		return
+	}
+
+	if !middleware.AJAX(w, r, models.AJAXData{CsrfS
