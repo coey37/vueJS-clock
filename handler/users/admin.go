@@ -150,4 +150,6 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if !middleware.AJAX(w, r, models.AJAXData{CsrfS
+	if !middleware.AJAX(w, r, models.AJAXData{CsrfSecret: data.CsrfSecret}) {
+		// Failed middleware (invalid credentials)
+		helpers.SuccessResponse(fal
