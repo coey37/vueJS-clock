@@ -152,4 +152,9 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 
 	if !middleware.AJAX(w, r, models.AJAXData{CsrfSecret: data.CsrfSecret}) {
 		// Failed middleware (invalid credentials)
-		helpers.SuccessResponse(fal
+		helpers.SuccessResponse(false, w, r)
+		return
+	}
+
+	uuidString := context.Get(r, "uuid").(string)
+	uuid, err := strconv.
