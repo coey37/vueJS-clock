@@ -157,4 +157,7 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 	}
 
 	uuidString := context.Get(r, "uuid").(string)
-	uuid, err := strconv.
+	uuid, err := strconv.Atoi(uuidString)
+	if err != nil {
+		helpers.SuccessResponse(false, w, r)
+		helpers.ThrowErr(w, r,
