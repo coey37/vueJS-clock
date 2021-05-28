@@ -166,4 +166,9 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 	user, err := db.GetUserFromID(uuid)
 	if err != nil {
 		helpers.SuccessResponse(false, w, r)
-		helpers.ThrowErr(w, r, "Error getting user from ID",
+		helpers.ThrowErr(w, r, "Error getting user from ID", err)
+	}
+
+	if user.Priv != models.PrivSuperAdmin {
+		// User isn't a super admin.
+		helper
