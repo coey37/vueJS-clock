@@ -171,4 +171,9 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 
 	if user.Priv != models.PrivSuperAdmin {
 		// User isn't a super admin.
-		helper
+		helpers.SuccessResponse(false, w, r)
+		return
+	}
+
+	err = db.DeleteUser(data.ID)
+	if err != 
