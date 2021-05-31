@@ -176,4 +176,6 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err = db.DeleteUser(data.ID)
-	if err != 
+	if err != nil {
+		helpers.SuccessResponse(false, w, r)
+		helpers.ThrowErr(w, r, "Deleting user
