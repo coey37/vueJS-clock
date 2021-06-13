@@ -14,4 +14,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ses"
 	"github.com/gorilla/context"
-	"github.com/
+	"github.com/gorilla/mux"
+	"github.com/zemirco/uid"
+)
+
+// Settings is the handler for a user editting th
