@@ -34,4 +34,6 @@ func Settings(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	uuid
+	uuidString := context.Get(r, "uuid").(string)
+	uuid, err := strconv.Atoi(uuidString)
+	if
