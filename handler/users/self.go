@@ -18,4 +18,6 @@ import (
 	"github.com/zemirco/uid"
 )
 
-// Settings is the handler for a user editting th
+// Settings is the handler for a user editting their own settings.
+func Settings(w http.ResponseWriter, r *http.Request) {
+	var data edit
