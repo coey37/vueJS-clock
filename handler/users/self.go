@@ -21,4 +21,6 @@ import (
 // Settings is the handler for a user editting their own settings.
 func Settings(w http.ResponseWriter, r *http.Request) {
 	var data edit                                // Create struct to store data.
-	err := json.NewDecoder
+	err := json.NewDecoder(r.Body).Decode(&data) // Decode response to struct.
+	if err != nil {
+		helpers.SuccessRe
