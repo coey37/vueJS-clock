@@ -28,4 +28,5 @@ func Settings(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if !middlewa
+	if !middleware.AJAX(w, r, models.AJAXData{CsrfSecret: data.CsrfSecret}) {
+		// Failed midd
