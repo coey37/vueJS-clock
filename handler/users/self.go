@@ -42,4 +42,6 @@ func Settings(w http.ResponseWriter, r *http.Request) {
 	}
 
 	user, err := db.GetUserFromID(uuid)
-	if er
+	if err != nil {
+		helpers.SuccessResponse(false, w, r)
+		helpers.ThrowErr(w, r, "Error getting user from
