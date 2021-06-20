@@ -48,4 +48,6 @@ func Settings(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if data.Password == "" {
-		err = db.EditSelfNoPassword(user.U
+		err = db.EditSelfNoPassword(user.UUID, data.Fname, data.Lname)
+		if err != nil {
+			helpers.SuccessResponse(false, w,
