@@ -44,4 +44,8 @@ func Settings(w http.ResponseWriter, r *http.Request) {
 	user, err := db.GetUserFromID(uuid)
 	if err != nil {
 		helpers.SuccessResponse(false, w, r)
-		helpers.ThrowErr(w, r, "Error getting user from
+		helpers.ThrowErr(w, r, "Error getting user from ID", err)
+	}
+
+	if data.Password == "" {
+		err = db.EditSelfNoPassword(user.U
