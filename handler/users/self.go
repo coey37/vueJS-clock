@@ -55,4 +55,6 @@ func Settings(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	} else {
-		p
+		password, err := helpers.HashPassword(data.Password)
+		if err != nil {
+			helpers.Succe
