@@ -59,4 +59,9 @@ func Settings(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			helpers.SuccessResponse(false, w, r)
 			helpers.ThrowErr(w, r, "Hashing password error", err)
-			re
+			return
+		}
+
+		err = db.EditSelf(user.UUID, password, data.Fname, data.Lname)
+		if err != nil {
+			helpers.S
