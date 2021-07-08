@@ -72,4 +72,7 @@ func Settings(w http.ResponseWriter, r *http.Request) {
 
 	if data.Email != user.Email {
 		user.Fname = data.Fname
-		user.Lname = d
+		user.Lname = data.Lname
+
+		if err := SendEmailVerification(user, data.Email); err != nil {
+			helpers.SuccessR
