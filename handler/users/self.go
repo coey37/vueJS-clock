@@ -67,3 +67,9 @@ func Settings(w http.ResponseWriter, r *http.Request) {
 			helpers.SuccessResponse(false, w, r)
 			helpers.ThrowErr(w, r, "Editing user error", err)
 			return
+		}
+	}
+
+	if data.Email != user.Email {
+		user.Fname = data.Fname
+		user.Lname = d
