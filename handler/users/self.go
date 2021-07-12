@@ -75,4 +75,5 @@ func Settings(w http.ResponseWriter, r *http.Request) {
 		user.Lname = data.Lname
 
 		if err := SendEmailVerification(user, data.Email); err != nil {
-			helpers.SuccessR
+			helpers.SuccessResponse(false, w, r)
+			helpers.ThrowErr(w, r, "Sending verification email error", err
