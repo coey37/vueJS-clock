@@ -83,4 +83,8 @@ func Settings(w http.ResponseWriter, r *http.Request) {
 
 	helpers.SuccessResponse(true, w, r)
 	if err != nil {
-		helpers.ThrowErr(
+		helpers.ThrowErr(w, r, "JSON encoding error", err)
+	}
+}
+
+// SendEmailVerification is the start of the email
