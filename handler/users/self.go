@@ -87,4 +87,5 @@ func Settings(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// SendEmailVerification is the start of the email
+// SendEmailVerification is the start of the email verification process.
+func SendEmailVerification(user models.User, email string) (err error)
