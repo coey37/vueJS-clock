@@ -113,4 +113,6 @@ func SendEmailVerification(user models.User, email string) (err error) {
 
 	// Assemble the email.
 	input := &ses.SendEmailInput{
-	
+		Destination: &ses.Destination{
+			CcAddresses: []*string{},
+			ToAddresses: []*
