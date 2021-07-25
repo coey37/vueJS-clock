@@ -101,4 +101,11 @@ func SendEmailVerification(user models.User, email string) (err error) {
 		return
 	}
 
-	sess, err := session.NewSession(&aws.
+	sess, err := session.NewSession(&aws.Config{
+		Region: aws.String("eu-west-1")},
+	)
+	if err != nil {
+		return
+	}
+
+	// Create a
