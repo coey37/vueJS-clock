@@ -108,4 +108,9 @@ func SendEmailVerification(user models.User, email string) (err error) {
 		return
 	}
 
-	// Create a
+	// Create an SES session.
+	svc := ses.New(sess)
+
+	// Assemble the email.
+	input := &ses.SendEmailInput{
+	
