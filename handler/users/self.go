@@ -96,4 +96,9 @@ func SendEmailVerification(user models.User, email string) (err error) {
 
 	id := uid.New(64)
 
-	err = db.AddEmailVerification(id, us
+	err = db.AddEmailVerification(id, user.UUID, email)
+	if err != nil {
+		return
+	}
+
+	sess, err := session.NewSession(&aws.
