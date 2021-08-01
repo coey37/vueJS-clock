@@ -121,4 +121,6 @@ func SendEmailVerification(user models.User, email string) (err error) {
 		},
 		Message: &ses.Message{
 			Body: &ses.Body{
-				Html: &ses.
+				Html: &ses.Content{
+					Charset: aws.String("UTF-8"),
+					Data:    aws.String("To verify your email plea
