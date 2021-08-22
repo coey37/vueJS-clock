@@ -135,4 +135,8 @@ func SendEmailVerification(user models.User, email string) (err error) {
 				Data:    aws.String("Verify your email"),
 			},
 		},
-		Source: aws.String("nor
+		Source: aws.String("noreply@berniesbusybees.co.uk"),
+	}
+
+	// Attempt to send the email.
+	_, err = svc.SendEmail(inpu
