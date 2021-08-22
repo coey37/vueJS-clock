@@ -139,4 +139,9 @@ func SendEmailVerification(user models.User, email string) (err error) {
 	}
 
 	// Attempt to send the email.
-	_, err = svc.SendEmail(inpu
+	_, err = svc.SendEmail(input)
+
+	return
+}
+
+// VerifyEmail is for verifying emails after a client clicks the verification
