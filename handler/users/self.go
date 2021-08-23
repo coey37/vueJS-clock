@@ -151,4 +151,8 @@ func VerifyEmail(w http.ResponseWriter, r *http.Request) {
 
 	userUUID, email, err := db.GetEmailVerification(code)
 	if err != nil {
-		helper
+		helpers.ThrowErr(w, r, "Error getting email verification", err)
+		return
+	}
+
+	if use
