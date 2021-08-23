@@ -147,4 +147,8 @@ func SendEmailVerification(user models.User, email string) (err error) {
 // VerifyEmail is for verifying emails after a client clicks the verification URL.
 func VerifyEmail(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	code := v
+	code := vars["code"]
+
+	userUUID, email, err := db.GetEmailVerification(code)
+	if err != nil {
+		helper
