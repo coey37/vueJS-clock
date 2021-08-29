@@ -155,4 +155,9 @@ func VerifyEmail(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if use
+	if userUUID == 0 || email == "" {
+		return
+	}
+
+	err = db.EditSelfEmail(userUUID, email)
+	i
