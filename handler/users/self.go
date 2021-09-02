@@ -160,4 +160,8 @@ func VerifyEmail(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err = db.EditSelfEmail(userUUID, email)
-	i
+	if err != nil {
+		helpers.ThrowErr(w, r, "Editing email error", err)
+		return
+	}
+
