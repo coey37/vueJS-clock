@@ -165,4 +165,6 @@ func VerifyEmail(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	t, err := template.ParseFiles("handler/templates/verified-email.html", "handler/templat
+	t, err := template.ParseFiles("handler/templates/verified-email.html", "handler/templates/nested.html") // Parse the HTML pages
+	if err != nil {
+		helpers.ThrowErr(w, 
