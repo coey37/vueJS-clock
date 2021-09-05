@@ -167,4 +167,8 @@ func VerifyEmail(w http.ResponseWriter, r *http.Request) {
 
 	t, err := template.ParseFiles("handler/templates/verified-email.html", "handler/templates/nested.html") // Parse the HTML pages
 	if err != nil {
-		helpers.ThrowErr(w, 
+		helpers.ThrowErr(w, r, "Template parsing error", err)
+		return
+	}
+
+	err = t.Execute(w, email) // Execute temm
