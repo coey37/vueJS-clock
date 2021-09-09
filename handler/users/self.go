@@ -171,4 +171,6 @@ func VerifyEmail(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = t.Execute(w, email) // Execute temm
+	err = t.Execute(w, email) // Execute temmplate with variables
+	if err != nil {
+		helpers.ThrowErr(w, r, "Template executio
