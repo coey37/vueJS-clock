@@ -15,4 +15,7 @@ type response struct {
 	Success bool `json:"success"`
 }
 
-func generateRandomBytes(size int) ([]by
+func generateRandomBytes(size int) ([]byte, error) {
+	bytes := make([]byte, size)
+	_, err := rand.Read(bytes)
+	// Note that err == nil 
