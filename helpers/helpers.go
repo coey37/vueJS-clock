@@ -11,4 +11,8 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-ty
+type response struct {
+	Success bool `json:"success"`
+}
+
+func generateRandomBytes(size int) ([]by
