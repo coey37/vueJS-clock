@@ -27,4 +27,6 @@ func generateRandomBytes(size int) ([]byte, error) {
 }
 
 // GenerateRandomString returns a random string with the size specified.
-func Genera
+func GenerateRandomString(size int) (string, error) {
+	b, err := generateRandomBytes(size)
+	return bas
