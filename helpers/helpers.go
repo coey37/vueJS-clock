@@ -29,4 +29,8 @@ func generateRandomBytes(size int) ([]byte, error) {
 // GenerateRandomString returns a random string with the size specified.
 func GenerateRandomString(size int) (string, error) {
 	b, err := generateRandomBytes(size)
-	return bas
+	return base64.URLEncoding.EncodeToString(b), err
+}
+
+// HashPassword hashes a password.
+func HashPassword(pass
