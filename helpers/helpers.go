@@ -18,4 +18,12 @@ type response struct {
 func generateRandomBytes(size int) ([]byte, error) {
 	bytes := make([]byte, size)
 	_, err := rand.Read(bytes)
-	// Note that err == nil 
+	// Note that err == nil only if we read len(bytes) bytes.
+	if err != nil {
+		return nil, err
+	}
+
+	return bytes, nil
+}
+
+/
