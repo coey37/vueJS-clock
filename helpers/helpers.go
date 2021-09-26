@@ -38,4 +38,6 @@ func HashPassword(password string) (string, error) {
 	return string(bytes), err
 }
 
-// CheckPassword checks a password against a
+// CheckPassword checks a password against a hash.
+func CheckPassword(password, hash string) bool {
+	err := bcrypt.CompareHashAndPassword([]byt
