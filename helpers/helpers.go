@@ -33,4 +33,5 @@ func GenerateRandomString(size int) (string, error) {
 }
 
 // HashPassword hashes a password.
-func HashPassword(pass
+func HashPassword(password string) (string, error) {
+	bytes, err := bcrypt.GenerateFromPassword([]byte(password
