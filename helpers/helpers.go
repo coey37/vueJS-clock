@@ -40,4 +40,8 @@ func HashPassword(password string) (string, error) {
 
 // CheckPassword checks a password against a hash.
 func CheckPassword(password, hash string) bool {
-	err := bcrypt.CompareHashAndPassword([]byt
+	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
+	return err == nil
+}
+
+// ThrowErr throws an HTTP error and logs it to 
