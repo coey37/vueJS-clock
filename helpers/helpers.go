@@ -50,4 +50,5 @@ func ThrowErr(w http.ResponseWriter, r *http.Request, errName string, err error)
 	http.Redirect(w, r, "/login", http.StatusTemporaryRedirect)
 }
 
-// JSO
+// JSONResponse sends a client a JSON response.
+func JSONResponse(data interface{}, w http.Respo
