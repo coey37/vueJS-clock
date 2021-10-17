@@ -52,4 +52,8 @@ func ThrowErr(w http.ResponseWriter, r *http.Request, errName string, err error)
 
 // JSONResponse sends a client a JSON response.
 func JSONResponse(data interface{}, w http.ResponseWriter) (err error) {
-	dataJSON, err := json.Marshal(data) // Encode response into
+	dataJSON, err := json.Marshal(data) // Encode response into JSON.
+	if err != nil {
+		return
+	}
+	w.Write(dataJSON) // Write JSON data to response wri
