@@ -61,4 +61,6 @@ func JSONResponse(data interface{}, w http.ResponseWriter) (err error) {
 }
 
 // SuccessResponse is a JSON response with a success boolean.
-func 
+func SuccessResponse(valid bool, w http.ResponseWriter, r *http.Request) {
+	res := response{
+		Success:
