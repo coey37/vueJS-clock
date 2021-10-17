@@ -56,4 +56,9 @@ func JSONResponse(data interface{}, w http.ResponseWriter) (err error) {
 	if err != nil {
 		return
 	}
-	w.Write(dataJSON) // Write JSON data to response wri
+	w.Write(dataJSON) // Write JSON data to response writer.
+	return
+}
+
+// SuccessResponse is a JSON response with a success boolean.
+func 
