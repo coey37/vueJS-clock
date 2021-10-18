@@ -63,4 +63,7 @@ func JSONResponse(data interface{}, w http.ResponseWriter) (err error) {
 // SuccessResponse is a JSON response with a success boolean.
 func SuccessResponse(valid bool, w http.ResponseWriter, r *http.Request) {
 	res := response{
-		Success:
+		Success: valid,
+	}
+	resEnc, err := json.Marshal(res) // Encode response into JSON.
+	if err
