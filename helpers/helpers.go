@@ -66,4 +66,7 @@ func SuccessResponse(valid bool, w http.ResponseWriter, r *http.Request) {
 		Success: valid,
 	}
 	resEnc, err := json.Marshal(res) // Encode response into JSON.
-	if err
+	if err != nil {
+		ThrowErr(w, r, "Sending success response error: %v", err)
+	}
+	w.Write(resEnc) // Writ
