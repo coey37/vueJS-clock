@@ -69,4 +69,9 @@ func SuccessResponse(valid bool, w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		ThrowErr(w, r, "Sending success response error: %v", err)
 	}
-	w.Write(resEnc) // Writ
+	w.Write(resEnc) // Write JSON data to response writer.
+	return
+}
+
+// CheckEmail checks if an email is valid.
+func
