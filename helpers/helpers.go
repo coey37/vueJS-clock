@@ -75,4 +75,11 @@ func SuccessResponse(valid bool, w http.ResponseWriter, r *http.Request) {
 
 // CheckEmail checks if an email is valid.
 func CheckEmail(email string) (err error) {
-	err = checkmail.ValidateForma
+	err = checkmail.ValidateFormat(email)
+	if err != nil {
+		return
+	}
+
+	err = checkmail.ValidateHost(email)
+	return
+}
