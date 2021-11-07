@@ -17,4 +17,5 @@ var (
 	discoveryCache = openid.NewSimpleDiscoveryCache()
 )
 
-func Steam(w http.Respon
+func Steam(w http.ResponseWriter, r *http.Request) {
+	if url, err := openid.RedirectURL("https://steamcommunity
