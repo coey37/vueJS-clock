@@ -18,4 +18,11 @@ var (
 )
 
 func Steam(w http.ResponseWriter, r *http.Request) {
-	if url, err := openid.RedirectURL("https://steamcommunity.com/openid", "https://froogo.co.uk/link/steam/callback", "https://froogo.co.uk/"); err ==
+	if url, err := openid.RedirectURL("https://steamcommunity.com/openid", "https://froogo.co.uk/link/steam/callback", "https://froogo.co.uk/"); err == nil {
+		http.Redirect(w, r, url, 303)
+	} else {
+		log.Print(err)
+	}
+}
+
+func SteamCallback(w 
