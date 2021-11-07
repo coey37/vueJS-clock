@@ -13,4 +13,8 @@ import (
 )
 
 var (
-	nonceStore     = openid.NewSim
+	nonceStore     = openid.NewSimpleNonceStore()
+	discoveryCache = openid.NewSimpleDiscoveryCache()
+)
+
+func Steam(w http.Respon
