@@ -26,4 +26,7 @@ func Steam(w http.ResponseWriter, r *http.Request) {
 }
 
 func SteamCallback(w http.ResponseWriter, r *http.Request) {
-	fullUrl := "https://froogo.co.uk" 
+	fullUrl := "https://froogo.co.uk" + r.URL.String()
+	id, err := openid.Verify(fullUrl, discoveryCache, nonceStore)
+	if err != nil {
+		helper
