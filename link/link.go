@@ -25,4 +25,5 @@ func Steam(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func SteamCallback(w 
+func SteamCallback(w http.ResponseWriter, r *http.Request) {
+	fullUrl := "https://froogo.co.uk" 
