@@ -29,4 +29,8 @@ func SteamCallback(w http.ResponseWriter, r *http.Request) {
 	fullUrl := "https://froogo.co.uk" + r.URL.String()
 	id, err := openid.Verify(fullUrl, discoveryCache, nonceStore)
 	if err != nil {
-		helper
+		helpers.ThrowErr(w, r, "Error Verifying OpenID", err)
+		return
+	}
+
+	steamIDString := strings.TrimPrefix(id, "https:/
