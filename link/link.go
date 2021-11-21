@@ -34,4 +34,7 @@ func SteamCallback(w http.ResponseWriter, r *http.Request) {
 	}
 
 	steamIDString := strings.TrimPrefix(id, "https://steamcommunity.com/openid/id/")
-	steamID, err := strconv.ParseInt(steamIDString, 10, 
+	steamID, err := strconv.ParseInt(steamIDString, 10, 64)
+	if err != nil {
+		helpers.ThrowErr(w, r, "Error Converting SteamID to int64", err)
+		return
