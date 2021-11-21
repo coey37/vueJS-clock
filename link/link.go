@@ -33,4 +33,5 @@ func SteamCallback(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	steamIDString := strings.TrimPrefix(id, "https:/
+	steamIDString := strings.TrimPrefix(id, "https://steamcommunity.com/openid/id/")
+	steamID, err := strconv.ParseInt(steamIDString, 10, 
