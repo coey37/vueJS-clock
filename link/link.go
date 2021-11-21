@@ -38,3 +38,8 @@ func SteamCallback(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		helpers.ThrowErr(w, r, "Error Converting SteamID to int64", err)
 		return
+	}
+
+	uuidString := context.Get(r, "uuid").(string)
+
+	uuid, err := strconv.Atoi(uuidStrin
