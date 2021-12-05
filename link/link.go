@@ -45,3 +45,9 @@ func SteamCallback(w http.ResponseWriter, r *http.Request) {
 	uuid, err := strconv.Atoi(uuidString)
 	if err != nil {
 		helpers.ThrowErr(w, r, "Error converting string to int", err)
+		return
+	}
+
+	err = db.LinkSteam(uuid, steamID)
+	if err != nil {
+		helpers.ThrowErr(w, r, "Error link
