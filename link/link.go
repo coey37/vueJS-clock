@@ -50,4 +50,8 @@ func SteamCallback(w http.ResponseWriter, r *http.Request) {
 
 	err = db.LinkSteam(uuid, steamID)
 	if err != nil {
-		helpers.ThrowErr(w, r, "Error link
+		helpers.ThrowErr(w, r, "Error linking steamID to user in DB", err)
+		return
+	}
+
+	http.Redirect(w, r, "/panel",
