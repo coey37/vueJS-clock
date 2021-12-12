@@ -54,4 +54,5 @@ func SteamCallback(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	http.Redirect(w, r, "/panel",
+	http.Redirect(w, r, "/panel", http.StatusTemporaryRedirect)
+}
