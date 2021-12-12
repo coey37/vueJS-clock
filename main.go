@@ -8,4 +8,6 @@ import (
 	"github.com/VolticFroogo/Froogo/middleware/myJWT"
 )
 
-func
+func main() {
+	if err := db.InitDB(); err != nil {
+		log.Printf("Error initializing 
