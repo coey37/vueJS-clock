@@ -15,4 +15,9 @@ func main() {
 	}
 
 	if err := myJWT.InitKeys(); err != nil {
-		log.Printf("Error in
+		log.Printf("Error initializing JWT keys: %v", err)
+		return
+	}
+
+	handler.Start()
+}
