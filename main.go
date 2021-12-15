@@ -10,4 +10,9 @@ import (
 
 func main() {
 	if err := db.InitDB(); err != nil {
-		log.Printf("Error initializing 
+		log.Printf("Error initializing database: %v", err)
+		return
+	}
+
+	if err := myJWT.InitKeys(); err != nil {
+		log.Printf("Error in
