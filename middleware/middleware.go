@@ -5,4 +5,6 @@ import (
 	"time"
 
 	"github.com/VolticFroogo/Froogo/helpers"
-	"github.com/Vo
+	"github.com/VolticFroogo/Froogo/middleware/myJWT"
+	"github.com/VolticFroogo/Froogo/models"
+	"github.com
