@@ -11,4 +11,5 @@ import (
 )
 
 // Panel handles authentication for authenticated pages.
-func Panel(w http.
+func Panel(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+	authTokenString, err := r.Cookie("authToken
