@@ -7,4 +7,8 @@ import (
 	"github.com/VolticFroogo/Froogo/helpers"
 	"github.com/VolticFroogo/Froogo/middleware/myJWT"
 	"github.com/VolticFroogo/Froogo/models"
-	"github.com
+	"github.com/gorilla/context"
+)
+
+// Panel handles authentication for authenticated pages.
+func Panel(w http.
