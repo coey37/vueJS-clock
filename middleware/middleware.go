@@ -12,4 +12,7 @@ import (
 
 // Panel handles authentication for authenticated pages.
 func Panel(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
-	authTokenString, err := r.Cookie("authToken
+	authTokenString, err := r.Cookie("authToken")
+	if err != nil {
+		helpers.ThrowErr(w, r, "Reading cookie error", err)
+		r
