@@ -24,4 +24,5 @@ func Panel(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 		return
 	}
 
-	if authTokenString.Value != "" 
+	if authTokenString.Value != "" {
+		authTokenValid, uuid, err := myJWT.CheckToken(authTokenString.Value, "", false
