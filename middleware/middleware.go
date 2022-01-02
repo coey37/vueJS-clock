@@ -20,4 +20,8 @@ func Panel(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 
 	refreshTokenString, err := r.Cookie("refreshToken")
 	if err != nil {
-		he
+		helpers.ThrowErr(w, r, "Reading cookie error", err)
+		return
+	}
+
+	if authTokenString.Value != "" 
