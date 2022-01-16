@@ -29,4 +29,13 @@ func Panel(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 		if err != nil {
 			helpers.ThrowErr(w, r, "Checking token error", err)
 			return
-		
+		}
+
+		if authTokenValid {
+			context.Set(r, "uuid", uuid)
+			next(w, r)
+			return
+		}
+	}
+
+	if refreshTok
