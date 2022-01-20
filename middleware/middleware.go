@@ -38,4 +38,5 @@ func Panel(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 		}
 	}
 
-	if refreshTok
+	if refreshTokenString.Value != "" {
+		refreshTokenValid, uuid, err := myJWT.CheckToken(refreshTo
