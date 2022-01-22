@@ -41,4 +41,9 @@ func Panel(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 	if refreshTokenString.Value != "" {
 		refreshTokenValid, uuid, err := myJWT.CheckToken(refreshTokenString.Value, "", true, false)
 		if err != nil {
-			helpers.ThrowErr(w, r, "Checking t
+			helpers.ThrowErr(w, r, "Checking token error", err)
+			return
+		}
+
+		if refreshTokenValid {
+			newAuthToke
