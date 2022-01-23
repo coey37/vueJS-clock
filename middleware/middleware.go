@@ -46,4 +46,7 @@ func Panel(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 		}
 
 		if refreshTokenValid {
-			newAuthTokenString, newRefreshTokenString, newCsrfSecret, err := myJWT.RefreshTokens(refreshTokenStrin
+			newAuthTokenString, newRefreshTokenString, newCsrfSecret, err := myJWT.RefreshTokens(refreshTokenString.Value)
+			if err != nil {
+				helpers.ThrowErr(w, r, "Creating new tokens error", err)
+				re
