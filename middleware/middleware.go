@@ -46,4 +46,4 @@ func Panel(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 		}
 
 		if refreshTokenValid {
-			newAuthToke
+			newAuthTokenString, newRefreshTokenString, newCsrfSecret, err := myJWT.RefreshTokens(refreshTokenStrin
