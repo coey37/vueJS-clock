@@ -54,4 +54,13 @@ func Panel(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 
 			WriteNewAuth(w, r, newAuthTokenString, newRefreshTokenString, newCsrfSecret)
 
-			contex
+			context.Set(r, "uuid", uuid)
+			next(w, r)
+			return
+		}
+	}
+
+	RedirectToLogin(w, r)
+}
+
+// Form is the
