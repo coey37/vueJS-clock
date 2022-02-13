@@ -64,4 +64,7 @@ func Panel(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 }
 
 // Form is the function used to protect forms.
-func Form(w http.ResponseWriter, r *http.Request, next http.Han
+func Form(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+	authTokenString, err := r.Cookie("authToken")
+	if err != nil {
+		helpers.ThrowErr(w
