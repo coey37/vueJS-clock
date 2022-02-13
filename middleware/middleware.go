@@ -67,4 +67,8 @@ func Panel(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 func Form(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 	authTokenString, err := r.Cookie("authToken")
 	if err != nil {
-		helpers.ThrowErr(w
+		helpers.ThrowErr(w, r, "Reading cookie error", err)
+		return
+	}
+
+	refreshTokenString, err := r.Cookie("refreshToken")
