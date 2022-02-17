@@ -75,3 +75,9 @@ func Form(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 	if err != nil {
 		helpers.ThrowErr(w, r, "Reading cookie error", err)
 		return
+	}
+
+	csrfSecret := r.FormValue("csrfSecret")
+
+	if authTokenString.Value != "" {
+		authToken
