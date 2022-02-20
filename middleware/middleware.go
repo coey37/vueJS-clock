@@ -94,4 +94,5 @@ func Form(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 	}
 
 	if refreshTokenString.Value != "" {
-		refreshT
+		refreshTokenValid, uuid, err := myJWT.CheckToken(refreshTokenString.Value, csrfSecret, true, true)
+		if er
