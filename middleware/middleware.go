@@ -81,4 +81,10 @@ func Form(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 
 	if authTokenString.Value != "" {
 		authTokenValid, uuid, err := myJWT.CheckToken(authTokenString.Value, csrfSecret, false, true)
-		i
+		if err != nil {
+			helpers.ThrowErr(w, r, "Checking token error", err)
+			return
+		}
+
+		if authTokenValid {
+			context.S
