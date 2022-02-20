@@ -80,4 +80,5 @@ func Form(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 	csrfSecret := r.FormValue("csrfSecret")
 
 	if authTokenString.Value != "" {
-		authToken
+		authTokenValid, uuid, err := myJWT.CheckToken(authTokenString.Value, csrfSecret, false, true)
+		i
