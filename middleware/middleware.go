@@ -87,4 +87,11 @@ func Form(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 		}
 
 		if authTokenValid {
-			context.S
+			context.Set(r, "uuid", uuid)
+			next(w, r)
+			return
+		}
+	}
+
+	if refreshTokenString.Value != "" {
+		refreshT
