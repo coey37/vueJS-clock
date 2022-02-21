@@ -100,4 +100,5 @@ func Form(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 			return
 		}
 
-		if refres
+		if refreshTokenValid {
+			newAuthTokenString, newRefreshTokenString, newCsrfSecret, err := my
