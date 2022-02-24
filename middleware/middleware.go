@@ -101,4 +101,6 @@ func Form(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 		}
 
 		if refreshTokenValid {
-			newAuthTokenString, newRefreshTokenString, newCsrfSecret, err := my
+			newAuthTokenString, newRefreshTokenString, newCsrfSecret, err := myJWT.RefreshTokens(refreshTokenString.Value)
+			if err != nil {
+				helpers.ThrowErr(w, r, "Creating n
