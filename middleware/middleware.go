@@ -107,4 +107,12 @@ func Form(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 				return
 			}
 
-			WriteNewAuth(w, r, newAuthTokenStri
+			WriteNewAuth(w, r, newAuthTokenString, newRefreshTokenString, newCsrfSecret)
+
+			context.Set(r, "uuid", uuid)
+			next(w, r)
+			return
+		}
+	}
+
+	
