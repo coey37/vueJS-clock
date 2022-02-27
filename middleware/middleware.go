@@ -115,4 +115,8 @@ func Form(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 		}
 	}
 
-	
+	RedirectToLogin(w, r)
+}
+
+// AJAX is the function used to protect AJAX requests.
+func 
