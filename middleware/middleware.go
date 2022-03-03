@@ -120,4 +120,8 @@ func Form(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 
 // AJAX is the function used to protect AJAX requests.
 func AJAX(w http.ResponseWriter, r *http.Request, data models.AJAXData) (valid bool) {
-	valid = fa
+	valid = false
+
+	authTokenString, err := r.Cookie("authToken")
+	if err != nil {
+		helpers.Th
