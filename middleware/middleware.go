@@ -124,4 +124,8 @@ func AJAX(w http.ResponseWriter, r *http.Request, data models.AJAXData) (valid b
 
 	authTokenString, err := r.Cookie("authToken")
 	if err != nil {
-		helpers.Th
+		helpers.ThrowErr(w, r, "Reading cookie error", err)
+		return
+	}
+
+	refreshTokenString, err :=
