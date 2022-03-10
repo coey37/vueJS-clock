@@ -130,4 +130,9 @@ func AJAX(w http.ResponseWriter, r *http.Request, data models.AJAXData) (valid b
 
 	refreshTokenString, err := r.Cookie("refreshToken")
 	if err != nil {
-		helpers.ThrowErr(w, r, "Reading cookie erro
+		helpers.ThrowErr(w, r, "Reading cookie error", err)
+		return
+	}
+
+	if authTokenString.Value != "" {
+		authTokenValid, uuid, err := myJWT.CheckToken(authToke
