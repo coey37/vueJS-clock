@@ -135,4 +135,6 @@ func AJAX(w http.ResponseWriter, r *http.Request, data models.AJAXData) (valid b
 	}
 
 	if authTokenString.Value != "" {
-		authTokenValid, uuid, err := myJWT.CheckToken(authToke
+		authTokenValid, uuid, err := myJWT.CheckToken(authTokenString.Value, data.CsrfSecret, false, true)
+		if err != nil {
+			helpers.ThrowErr
