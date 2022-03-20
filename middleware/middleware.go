@@ -142,4 +142,10 @@ func AJAX(w http.ResponseWriter, r *http.Request, data models.AJAXData) (valid b
 		}
 
 		if authTokenValid {
-			contex
+			context.Set(r, "uuid", uuid)
+			return true
+		}
+	}
+
+	if refreshTokenString.Value != "" {
+		refreshTok
