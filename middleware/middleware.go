@@ -148,4 +148,6 @@ func AJAX(w http.ResponseWriter, r *http.Request, data models.AJAXData) (valid b
 	}
 
 	if refreshTokenString.Value != "" {
-		refreshTokenValid, uuid, err := myJWT.CheckToken(refreshTokenString.Value, data.CsrfSecret
+		refreshTokenValid, uuid, err := myJWT.CheckToken(refreshTokenString.Value, data.CsrfSecret, true, true)
+		if err != nil {
+			helpers.ThrowErr(w, r, "Checking token error", err)
