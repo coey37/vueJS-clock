@@ -155,4 +155,6 @@ func AJAX(w http.ResponseWriter, r *http.Request, data models.AJAXData) (valid b
 		}
 
 		if refreshTokenValid {
-			newAuthTokenString, newRefreshTokenString, newCsr
+			newAuthTokenString, newRefreshTokenString, newCsrfSecret, err := myJWT.RefreshTokens(refreshTokenString.Value)
+			if err != nil {
+				helpers
