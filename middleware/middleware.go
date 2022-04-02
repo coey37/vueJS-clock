@@ -157,4 +157,8 @@ func AJAX(w http.ResponseWriter, r *http.Request, data models.AJAXData) (valid b
 		if refreshTokenValid {
 			newAuthTokenString, newRefreshTokenString, newCsrfSecret, err := myJWT.RefreshTokens(refreshTokenString.Value)
 			if err != nil {
-				helpers
+				helpers.ThrowErr(w, r, "Creating new tokens error", err)
+				return
+			}
+
+			WriteNewAuth(w, r, ne
