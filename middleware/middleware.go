@@ -163,4 +163,12 @@ func AJAX(w http.ResponseWriter, r *http.Request, data models.AJAXData) (valid b
 
 			WriteNewAuth(w, r, newAuthTokenString, newRefreshTokenString, newCsrfSecret)
 
-			context.Set(r, "u
+			context.Set(r, "uuid", uuid)
+			return true
+		}
+	}
+
+	return
+}
+
+// WriteNewAuth writes authentication to a user's browser.
