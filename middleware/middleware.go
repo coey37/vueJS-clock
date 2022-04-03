@@ -161,4 +161,6 @@ func AJAX(w http.ResponseWriter, r *http.Request, data models.AJAXData) (valid b
 				return
 			}
 
-			WriteNewAuth(w, r, ne
+			WriteNewAuth(w, r, newAuthTokenString, newRefreshTokenString, newCsrfSecret)
+
+			context.Set(r, "u
