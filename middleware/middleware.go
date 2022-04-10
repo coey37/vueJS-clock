@@ -172,4 +172,5 @@ func AJAX(w http.ResponseWriter, r *http.Request, data models.AJAXData) (valid b
 }
 
 // WriteNewAuth writes authentication to a user's browser.
-func WriteNewAuth(w http.ResponseWriter, r *http.Request, authTokenString, refres
+func WriteNewAuth(w http.ResponseWriter, r *http.Request, authTokenString, refreshTokenString, csrfSecret string) {
+	expiration := time.Now().Add(time.Hour * 2
