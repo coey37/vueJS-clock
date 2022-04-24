@@ -175,4 +175,7 @@ func AJAX(w http.ResponseWriter, r *http.Request, data models.AJAXData) (valid b
 func WriteNewAuth(w http.ResponseWriter, r *http.Request, authTokenString, refreshTokenString, csrfSecret string) {
 	expiration := time.Now().Add(time.Hour * 24 * 365)
 
-	cookie := http.Cookie{Name: "authToken", Value: authTokenString, Expires: expiration,
+	cookie := http.Cookie{Name: "authToken", Value: authTokenString, Expires: expiration, Path: "/", HttpOnly: true, Secure: true}
+	http.SetCookie(w, &cookie)
+
+	cook
