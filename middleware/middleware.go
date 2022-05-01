@@ -178,4 +178,4 @@ func WriteNewAuth(w http.ResponseWriter, r *http.Request, authTokenString, refre
 	cookie := http.Cookie{Name: "authToken", Value: authTokenString, Expires: expiration, Path: "/", HttpOnly: true, Secure: true}
 	http.SetCookie(w, &cookie)
 
-	cook
+	cookie = http.Cookie{Name: "refreshToken", Value: refreshTokenString, Expires: expiration, Path: "
