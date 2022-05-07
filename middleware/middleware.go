@@ -182,4 +182,10 @@ func WriteNewAuth(w http.ResponseWriter, r *http.Request, authTokenString, refre
 	http.SetCookie(w, &cookie)
 
 	cookie = http.Cookie{Name: "csrfSecret", Value: csrfSecret, Expires: expiration, Path: "/", HttpOnly: true, Secure: true}
-	http.SetCookie
+	http.SetCookie(w, &cookie)
+
+	return
+}
+
+// RedirectToLogin redirects the client to the login.
+func Redire
