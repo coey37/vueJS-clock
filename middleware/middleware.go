@@ -181,4 +181,5 @@ func WriteNewAuth(w http.ResponseWriter, r *http.Request, authTokenString, refre
 	cookie = http.Cookie{Name: "refreshToken", Value: refreshTokenString, Expires: expiration, Path: "/", HttpOnly: true, Secure: true}
 	http.SetCookie(w, &cookie)
 
-	cookie = http.Cookie{Name:
+	cookie = http.Cookie{Name: "csrfSecret", Value: csrfSecret, Expires: expiration, Path: "/", HttpOnly: true, Secure: true}
+	http.SetCookie
