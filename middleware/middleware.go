@@ -188,4 +188,5 @@ func WriteNewAuth(w http.ResponseWriter, r *http.Request, authTokenString, refre
 }
 
 // RedirectToLogin redirects the client to the login.
-func Redire
+func RedirectToLogin(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/login", http.St
