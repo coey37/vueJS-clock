@@ -156,3 +156,53 @@ func CreateNewTokens(uuid string) (authTokenString, refreshTokenString, csrfSecr
 
 	// Generate the auth token
 	authTokenString, err = createAuthTokenString(uuid, csrfSecret)
+
+	return
+}
+
+func createRefreshTokenString(uuid, csrfSecret string) (refreshTokenString string, err error) {
+	refreshTokenExp := time.Now().Add(models.RefreshTokenValidTime).Unix()
+	refreshJti, err := db.StoreRefreshToken()
+	if err != nil {
+		return
+	}
+
+	refreshClaims := models.TokenClaims{
+		jwt.StandardClaims{
+			Id:        refreshJti.JTI,  // Token Id
+			Subject:   uuid,            // Universally Unique Identifier
+			ExpiresAt: refreshTokenExp, // Expiry time in UNIX
+		},
+		csrfSecret, // CSRF Secret to prevent CSRF
+	}
+
+	// Make a new unsigned token
+	unsignedToken := jwt.NewWithClaims(jwt.SigningMethodRS256, refreshClaims)
+	// Sign token
+	refreshTokenString, err = unsignedToken.SignedString(signKey)
+
+	return
+}
+
+func createAuthTokenString(uuid, csrfSecret string) (authTokenString string, err error) {
+	authTokenExp := time.Now().Add(models.AuthTokenValidTime).Unix()
+
+	authClaims := models.TokenClaims{
+		jwt.StandardClaims{
+			Subject:   uuid,
+			ExpiresAt: authTokenExp,
+		},
+		csrfSecret,
+	}
+
+	// Make a new unsigned token
+	unsignedToken := jwt.NewWithClaims(jwt.SigningMethodRS256, authClaims)
+	// Sign token
+	authTokenString, err = unsignedToken.SignedString(signKey)
+
+	return
+}
+
+func generateCSRFSecret() (csrfSecret string, err error) {
+	return helpers.GenerateRandomString(32)
+}
