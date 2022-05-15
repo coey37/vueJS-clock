@@ -10,4 +10,6 @@ import (
 
 // Token lifetimes
 const (
-	// AuthTokenValidTime is the l
+	// AuthTokenValidTime is the lifetime of an auth token.
+	AuthTokenValidTime = time.Minute * 15
+	// RefreshTokenValidTime is 
