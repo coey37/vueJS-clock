@@ -12,4 +12,10 @@ import (
 const (
 	// AuthTokenValidTime is the lifetime of an auth token.
 	AuthTokenValidTime = time.Minute * 15
-	// RefreshTokenValidTime is 
+	// RefreshTokenValidTime is the lifetime of a refresh token.
+	RefreshTokenValidTime = time.Hour * 72
+)
+
+// Privileges
+const (
+	PrivNone = io
