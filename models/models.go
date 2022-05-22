@@ -18,4 +18,12 @@ const (
 
 // Privileges
 const (
-	PrivNone = io
+	PrivNone = iota
+	PrivUser
+	PrivAdmin
+	PrivSuperAdmin
+)
+
+const (
+	OfferStatusPending = iota
+	OfferStatusAccept
