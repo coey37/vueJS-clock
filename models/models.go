@@ -31,4 +31,6 @@ const (
 )
 
 // User is a user retrieved from a Database.
-type User stru
+type User struct {
+	UUID, Priv, Points                      int
+	Creation, SteamID                   
