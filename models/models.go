@@ -26,4 +26,9 @@ const (
 
 const (
 	OfferStatusPending = iota
-	OfferStatusAccept
+	OfferStatusAccepted
+	OfferStatusCompleted
+)
+
+// User is a user retrieved from a Database.
+type User stru
