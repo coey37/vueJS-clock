@@ -37,4 +37,8 @@ type User struct {
 	Email, Password, Fname, Lname, Username string
 }
 
-// Users is a
+// Users is an array of User for the admin page.
+type Users []User
+
+// TokenClaims are the claims in a token.
+type To
