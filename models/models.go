@@ -41,4 +41,9 @@ type User struct {
 type Users []User
 
 // TokenClaims are the claims in a token.
-type To
+type TokenClaims struct {
+	jwt.StandardClaims
+	CSRF string `json:"csrf"`
+}
+
+// TemplateVariables is the struct
