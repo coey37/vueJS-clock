@@ -49,4 +49,7 @@ type TokenClaims struct {
 // TemplateVariables is the struct used when executing a template.
 type TemplateVariables struct {
 	CsrfSecret, Assetid string
-	User    
+	User                User
+	SteamUser           SteamUser
+	UnixTime            int64
+	Inventory         
