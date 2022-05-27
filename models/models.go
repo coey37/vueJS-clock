@@ -46,4 +46,7 @@ type TokenClaims struct {
 	CSRF string `json:"csrf"`
 }
 
-// TemplateVariables is the struct
+// TemplateVariables is the struct used when executing a template.
+type TemplateVariables struct {
+	CsrfSecret, Assetid string
+	User    
