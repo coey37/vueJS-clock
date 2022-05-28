@@ -52,4 +52,7 @@ type TemplateVariables struct {
 	User                User
 	SteamUser           SteamUser
 	UnixTime            int64
-	Inventory         
+	Inventory           SteamInventory
+	Item                Item
+	FloatAPI            FloatAPI
+	Inspectable         bool
