@@ -56,3 +56,8 @@ type TemplateVariables struct {
 	Item                Item
 	FloatAPI            FloatAPI
 	Inspectable         bool
+	EstimatedPoints     int
+	Offers              []Offer
+}
+
+// AJAXData is the struct used
