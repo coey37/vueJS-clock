@@ -60,4 +60,9 @@ type TemplateVariables struct {
 	Offers              []Offer
 }
 
-// AJAXData is the struct used
+// AJAXData is the struct used with the AJAX middleware.
+type AJAXData struct {
+	CsrfSecret string
+}
+
+// JTI is the struct used for J
