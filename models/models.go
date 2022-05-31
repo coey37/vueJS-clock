@@ -65,4 +65,11 @@ type AJAXData struct {
 	CsrfSecret string
 }
 
-// JTI is the struct used for J
+// JTI is the struct used for JTIs in the DB.
+type JTI struct {
+	ID     int
+	Expiry int64
+	JTI    string
+}
+
+// ResponseWit
