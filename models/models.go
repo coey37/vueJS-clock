@@ -72,4 +72,6 @@ type JTI struct {
 	JTI    string
 }
 
-// ResponseWit
+// ResponseWithID is a simple struct for responding to an AJAX request.
+type ResponseWithID struct {
+	
