@@ -74,4 +74,8 @@ type JTI struct {
 
 // ResponseWithID is a simple struct for responding to an AJAX request.
 type ResponseWithID struct {
-	
+	Success bool   `json:"success"`
+	ID      string `json:"id"`
+}
+
+// ResponseWithIDInt is
