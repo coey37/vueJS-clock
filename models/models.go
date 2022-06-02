@@ -78,4 +78,6 @@ type ResponseWithID struct {
 	ID      string `json:"id"`
 }
 
-// ResponseWithIDInt is
+// ResponseWithIDInt is a simple struct for responding to an AJAX request.
+type ResponseWithIDInt struct {
+	S
