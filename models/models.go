@@ -80,4 +80,9 @@ type ResponseWithID struct {
 
 // ResponseWithIDInt is a simple struct for responding to an AJAX request.
 type ResponseWithIDInt struct {
+	Success bool `json:"success"`
+	ID      int  `json:"id"`
+}
+
+type SteamUser struct {
 	S
