@@ -85,4 +85,5 @@ type ResponseWithIDInt struct {
 }
 
 type SteamUser struct {
-	S
+	Steamid                  string `json:"steamid"`
+	Communityvisibilitystate int    `json:"communityvisibilit
