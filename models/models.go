@@ -90,4 +90,5 @@ type SteamUser struct {
 	Profilestate             int    `json:"profilestate"`
 	Personaname              string `json:"personaname"`
 	Lastlogoff               int    `json:"lastlogoff"`
-	Commentpermi
+	Commentpermission        int    `json:"commentpermission"`
+	Profileurl               string `json
