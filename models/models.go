@@ -97,4 +97,5 @@ type SteamUser struct {
 	Avatarfull               string `json:"avatarfull"`
 	Personastate             int    `json:"personastate"`
 	Realname                 string `json:"realname"`
-	Primarycla
+	Primaryclanid            string `json:"primaryclanid"`
+	Timecreated              int    `json:"timecreat
