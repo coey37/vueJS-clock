@@ -100,4 +100,8 @@ type SteamUser struct {
 	Primaryclanid            string `json:"primaryclanid"`
 	Timecreated              int    `json:"timecreated"`
 	Personastateflags        int    `json:"personastateflags"`
-	Loccountrycode 
+	Loccountrycode           string `json:"loccountrycode"`
+}
+
+type SteamInventory struct {
+	Asset
