@@ -104,4 +104,6 @@ type SteamUser struct {
 }
 
 type SteamInventory struct {
-	Asset
+	Assets []struct {
+		Appid      int    `json:"appid"`
+		Contextid  string `json:"conte
