@@ -106,4 +106,7 @@ type SteamUser struct {
 type SteamInventory struct {
 	Assets []struct {
 		Appid      int    `json:"appid"`
-		Contextid  string `json:"conte
+		Contextid  string `json:"contextid"`
+		Assetid    string `json:"assetid"`
+		Classid    string `json:"classid"`
+		Instan
