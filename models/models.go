@@ -109,4 +109,6 @@ type SteamInventory struct {
 		Contextid  string `json:"contextid"`
 		Assetid    string `json:"assetid"`
 		Classid    string `json:"classid"`
-		Instan
+		Instanceid string `json:"instanceid"`
+		Amount     string `json:"amount"`
+	} `json:"assets"`
