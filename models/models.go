@@ -112,3 +112,5 @@ type SteamInventory struct {
 		Instanceid string `json:"instanceid"`
 		Amount     string `json:"amount"`
 	} `json:"assets"`
+	Descriptions        []Item `json:"descriptions"`
+	TotalInventoryCount int    `json:"total_invent
