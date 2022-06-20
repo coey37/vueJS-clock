@@ -123,3 +123,5 @@ type Item struct {
 	Classid         string `json:"classid"`
 	Instanceid      string `json:"instanceid"`
 	Currency        int    `json:"currency"`
+	BackgroundColor string `json:"background_color"`
+	IconURL         string `json:
