@@ -120,4 +120,6 @@ type SteamInventory struct {
 
 type Item struct {
 	Appid           int    `json:"appid"`
-	Classid         str
+	Classid         string `json:"classid"`
+	Instanceid      string `json:"instanceid"`
+	Currency        int    `json:"currency"`
