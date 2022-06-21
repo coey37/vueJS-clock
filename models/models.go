@@ -124,4 +124,8 @@ type Item struct {
 	Instanceid      string `json:"instanceid"`
 	Currency        int    `json:"currency"`
 	BackgroundColor string `json:"background_color"`
-	IconURL         string `json:
+	IconURL         string `json:"icon_url"`
+	Descriptions    []struct {
+		Type  string `json:"type"`
+		Value string `json:"value"`
+		Color string
