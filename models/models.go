@@ -128,4 +128,6 @@ type Item struct {
 	Descriptions    []struct {
 		Type  string `json:"type"`
 		Value string `json:"value"`
-		Color string
+		Color string `json:"color,omitempty"`
+	} `json:"descriptions"`
+	Tradable                  int    `json:"tradable"
