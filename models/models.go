@@ -132,4 +132,6 @@ type Item struct {
 	} `json:"descriptions"`
 	Tradable                  int    `json:"tradable"`
 	Name                      string `json:"name"`
-	NameColor                
+	NameColor                 string `json:"name_color"`
+	Type                      string `json:"type"`
+	MarketName      
