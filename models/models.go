@@ -134,4 +134,5 @@ type Item struct {
 	Name                      string `json:"name"`
 	NameColor                 string `json:"name_color"`
 	Type                      string `json:"type"`
-	MarketName      
+	MarketName                string `json:"market_name"`
+	MarketHashName            string `json:"market_hash_nam
