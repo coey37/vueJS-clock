@@ -137,4 +137,6 @@ type Item struct {
 	MarketName                string `json:"market_name"`
 	MarketHashName            string `json:"market_hash_name"`
 	Commodity                 int    `json:"commodity"`
-	MarketTradableRestriction int    `json:"market_t
+	MarketTradableRestriction int    `json:"market_tradable_restriction"`
+	Marketable                int    `json:"marketable"`
+	Tags 
