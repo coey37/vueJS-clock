@@ -139,4 +139,6 @@ type Item struct {
 	Commodity                 int    `json:"commodity"`
 	MarketTradableRestriction int    `json:"market_tradable_restriction"`
 	Marketable                int    `json:"marketable"`
-	Tags 
+	Tags                      []struct {
+		Category              string `json:"category"`
+		InternalName      
