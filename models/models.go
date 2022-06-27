@@ -141,4 +141,5 @@ type Item struct {
 	Marketable                int    `json:"marketable"`
 	Tags                      []struct {
 		Category              string `json:"category"`
-		InternalName      
+		InternalName          string `json:"internal_name"`
+		LocalizedCategoryName string `json:"localized_cat
