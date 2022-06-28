@@ -144,4 +144,6 @@ type Item struct {
 		InternalName          string `json:"internal_name"`
 		LocalizedCategoryName string `json:"localized_category_name"`
 		LocalizedTagName      string `json:"localized_tag_name"`
-		Color                 str
+		Color                 string `json:"color,omitempty"`
+	} `json:"tags"`
+	IconURLLarge string `json:"icon_url_large,omitempty"`
