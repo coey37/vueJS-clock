@@ -142,4 +142,6 @@ type Item struct {
 	Tags                      []struct {
 		Category              string `json:"category"`
 		InternalName          string `json:"internal_name"`
-		LocalizedCategoryName string `json:"localized_cat
+		LocalizedCategoryName string `json:"localized_category_name"`
+		LocalizedTagName      string `json:"localized_tag_name"`
+		Color                 str
