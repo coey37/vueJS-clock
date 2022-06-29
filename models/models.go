@@ -147,3 +147,7 @@ type Item struct {
 		Color                 string `json:"color,omitempty"`
 	} `json:"tags"`
 	IconURLLarge string `json:"icon_url_large,omitempty"`
+	Actions      []struct {
+		Link string `json:"link"`
+		Name string `json:"name"`
+	} `json:"act
