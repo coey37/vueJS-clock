@@ -153,4 +153,8 @@ type Item struct {
 	} `json:"actions,omitempty"`
 	MarketActions []struct {
 		Link string `json:"link"`
-		Name s
+		Name string `json:"name"`
+	} `json:"market_actions,omitempty"`
+}
+
+func (item Item) Colour
