@@ -150,4 +150,7 @@ type Item struct {
 	Actions      []struct {
 		Link string `json:"link"`
 		Name string `json:"name"`
-	} `json:"act
+	} `json:"actions,omitempty"`
+	MarketActions []struct {
+		Link string `json:"link"`
+		Name s
