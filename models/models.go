@@ -157,4 +157,8 @@ type Item struct {
 	} `json:"market_actions,omitempty"`
 }
 
-func (item Item) Colour
+func (item Item) Colour() (hex string) {
+	weaponType := strings.SplitN(item.Type, " ", 3)
+
+	index := 0
+	if weaponType[0] == "StatTrak™" {
