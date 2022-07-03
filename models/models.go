@@ -168,4 +168,9 @@ func (item Item) Colour() (hex string) {
 	switch weaponType[index] {
 	case "Consumer":
 		hex = "c0c0c0"
-		br
+		break
+	case "Industrial":
+		hex = "99ccff"
+		break
+	case "Mil-Spec":
+		hex = "00
