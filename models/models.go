@@ -162,3 +162,10 @@ func (item Item) Colour() (hex string) {
 
 	index := 0
 	if weaponType[0] == "StatTrak™" {
+		index = 1
+	}
+
+	switch weaponType[index] {
+	case "Consumer":
+		hex = "c0c0c0"
+		br
