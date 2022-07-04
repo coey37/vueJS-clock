@@ -173,4 +173,11 @@ func (item Item) Colour() (hex string) {
 		hex = "99ccff"
 		break
 	case "Mil-Spec":
-		hex = "00
+		hex = "0000ff"
+		break
+	case "Restricted":
+		hex = "800080"
+		break
+	case "Classified":
+		hex = "ff00ff"
+		brea
