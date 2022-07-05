@@ -180,4 +180,11 @@ func (item Item) Colour() (hex string) {
 		break
 	case "Classified":
 		hex = "ff00ff"
-		brea
+		break
+	case "Covert":
+		hex = "ff0000"
+		break
+	case "Exceedingly":
+		hex = "ffcc00"
+		break
+	case "Contra
