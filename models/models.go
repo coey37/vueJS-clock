@@ -187,4 +187,12 @@ func (item Item) Colour() (hex string) {
 	case "Exceedingly":
 		hex = "ffcc00"
 		break
-	case "Contra
+	case "Contraband":
+		// Discontinued
+		hex = "ffcc99"
+		break
+	default:
+		hex = "000000"
+	}
+
+	re
