@@ -200,4 +200,9 @@ func (item Item) Colour() (hex string) {
 
 func (item Item) HasWear() (wear bool) {
 	first := strings.Split(item.MarketName, "(")
-	log.Print
+	log.Println(first)
+	if len(first) == 1 {
+		return
+	}
+
+	second := strings.Split(first[1], ")")[0]
