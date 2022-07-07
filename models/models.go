@@ -206,3 +206,8 @@ func (item Item) HasWear() (wear bool) {
 	}
 
 	second := strings.Split(first[1], ")")[0]
+	switch second {
+	case "Factory New":
+		return true
+	case "Minimal Wear":
+		r
