@@ -216,3 +216,11 @@ func (item Item) HasWear() (wear bool) {
 	case "Well-Worn":
 		return true
 	case "Battle Scarred":
+		return true
+	}
+
+	return
+}
+
+func (item Item) Wear() (wear string) {
+	return strings.Split(strin
