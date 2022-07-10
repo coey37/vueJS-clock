@@ -210,4 +210,9 @@ func (item Item) HasWear() (wear bool) {
 	case "Factory New":
 		return true
 	case "Minimal Wear":
-		r
+		return true
+	case "Field Tested":
+		return true
+	case "Well-Worn":
+		return true
+	case "Battle Scarred":
