@@ -223,4 +223,9 @@ func (item Item) HasWear() (wear bool) {
 }
 
 func (item Item) Wear() (wear string) {
-	return strings.Split(strin
+	return strings.Split(strings.Split(item.MarketName, "(")[1], ")")[0]
+}
+
+type FloatAPI struct {
+	Iteminfo struct {
+		A
