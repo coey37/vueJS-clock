@@ -228,4 +228,7 @@ func (item Item) Wear() (wear string) {
 
 type FloatAPI struct {
 	Iteminfo struct {
-		A
+		Accountid interface{} `json:"accountid"`
+		Itemid    struct {
+			Low      int  `json:"low"`
+			Hig
