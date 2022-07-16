@@ -231,4 +231,6 @@ type FloatAPI struct {
 		Accountid interface{} `json:"accountid"`
 		Itemid    struct {
 			Low      int  `json:"low"`
-			Hig
+			High     int  `json:"high"`
+			Unsigned bool `json:"unsigned"`
+		} `json:"itemi
