@@ -237,4 +237,6 @@ type FloatAPI struct {
 		Defindex           int           `json:"defindex"`
 		Paintindex         int           `json:"paintindex"`
 		Rarity             int           `json:"rarity"`
-		Quality  
+		Quality            int           `json:"quality"`
+		Paintwear          int           `json:"paintwear"`
+		Paints
