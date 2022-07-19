@@ -235,4 +235,6 @@ type FloatAPI struct {
 			Unsigned bool `json:"unsigned"`
 		} `json:"itemid"`
 		Defindex           int           `json:"defindex"`
-		Paintindex         int           `j
+		Paintindex         int           `json:"paintindex"`
+		Rarity             int           `json:"rarity"`
+		Quality  
