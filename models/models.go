@@ -240,4 +240,6 @@ type FloatAPI struct {
 		Quality            int           `json:"quality"`
 		Paintwear          int           `json:"paintwear"`
 		Paintseed          int           `json:"paintseed"`
-		Killeaterscoretype interface{}   `json:"kill
+		Killeaterscoretype interface{}   `json:"killeaterscoretype"`
+		Killeatervalue     interface{}   `json:"killeatervalue"`
+		Customname    
