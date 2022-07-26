@@ -245,4 +245,6 @@ type FloatAPI struct {
 		Customname         interface{}   `json:"customname"`
 		Stickers           []interface{} `json:"stickers"`
 		Inventory          int           `json:"inventory"`
-		Origin             int           `json:"orig
+		Origin             int           `json:"origin"`
+		Questid            interface{}   `json:"questid"`
+		Dropreason         interface{}   
