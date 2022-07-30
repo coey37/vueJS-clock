@@ -249,4 +249,6 @@ type FloatAPI struct {
 		Questid            interface{}   `json:"questid"`
 		Dropreason         interface{}   `json:"dropreason"`
 		Floatvalue         float64       `json:"floatvalue"`
-		ItemidInt          int64      
+		ItemidInt          int64         `json:"itemid_int"`
+		S                  string        `json:"s"`
+		A                  string       
