@@ -253,4 +253,6 @@ type FloatAPI struct {
 		S                  string        `json:"s"`
 		A                  string        `json:"a"`
 		D                  string        `json:"d"`
-		M                  st
+		M                  string        `json:"m"`
+		Imageurl           string        `json:"imageurl"`
+		Min                f
