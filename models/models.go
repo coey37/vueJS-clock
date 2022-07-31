@@ -251,4 +251,6 @@ type FloatAPI struct {
 		Floatvalue         float64       `json:"floatvalue"`
 		ItemidInt          int64         `json:"itemid_int"`
 		S                  string        `json:"s"`
-		A                  string       
+		A                  string        `json:"a"`
+		D                  string        `json:"d"`
+		M                  st
