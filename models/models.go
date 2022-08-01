@@ -255,4 +255,6 @@ type FloatAPI struct {
 		D                  string        `json:"d"`
 		M                  string        `json:"m"`
 		Imageurl           string        `json:"imageurl"`
-		Min                f
+		Min                float64       `json:"min"`
+		Max                float64       `json:"max"`
+		We
