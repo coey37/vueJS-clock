@@ -258,4 +258,9 @@ type FloatAPI struct {
 		Min                float64       `json:"min"`
 		Max                float64       `json:"max"`
 		WeaponType         string        `json:"weapon_type"`
-		ItemName           string        `json:"item_n
+		ItemName           string        `json:"item_name"`
+	} `json:"iteminfo"`
+}
+
+type Offer struct {
+	User, Classid, CsrfSecre
