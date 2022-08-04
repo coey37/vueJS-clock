@@ -263,4 +263,5 @@ type FloatAPI struct {
 }
 
 type Offer struct {
-	User, Classid, CsrfSecre
+	User, Classid, CsrfSecret, FloatAPIJSON, ItemJSON, OtherUsername string
+	Points, UserUUID, ReceiverUUID, ID, Status         
