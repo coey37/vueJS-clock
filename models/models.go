@@ -266,4 +266,8 @@ type Offer struct {
 	User, Classid, CsrfSecret, FloatAPIJSON, ItemJSON, OtherUsername string
 	Points, UserUUID, ReceiverUUID, ID, Status                       int
 	Timestamp                                                        int64
-	FloatAPI                                                      
+	FloatAPI                                                         FloatAPI
+	Item                                                             Item
+}
+
+func (off
