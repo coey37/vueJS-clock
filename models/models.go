@@ -270,4 +270,10 @@ type Offer struct {
 	Item                                                             Item
 }
 
-func (off
+func (offer Offer) FromUser(uuid int) (fromUser bool) {
+	if offer.UserUUID == uuid {
+		return true
+	}
+
+	return false
+}
