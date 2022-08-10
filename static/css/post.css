@@ -3,4 +3,5 @@
     max-height: 100%;
     border-width: 1px;
     border-color: grey;
-    border-style
+    border-style: solid;
+}
