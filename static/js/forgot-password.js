@@ -3,4 +3,8 @@ $(document).ready(function(){
     Waves.displayEffect();
 
     $("#button").click(function(){
-        $("#message").html("Sending for
+        $("#message").html("Sending forgot password message!");
+ 
+        $.ajax({
+            url: "/forgot-password",
+            type: "POST",
