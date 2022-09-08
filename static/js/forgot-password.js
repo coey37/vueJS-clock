@@ -8,3 +8,5 @@ $(document).ready(function(){
         $.ajax({
             url: "/forgot-password",
             type: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.
