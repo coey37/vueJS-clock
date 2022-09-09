@@ -11,4 +11,8 @@ $(document).ready(function(){
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({
                 Email: $("#email").val(),
-                Captcha: grecaptcha.getRes
+                Captcha: grecaptcha.getResponse()
+            }),
+            dataType: "json",
+            success: function(r) {
+       
