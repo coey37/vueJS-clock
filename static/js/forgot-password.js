@@ -9,4 +9,6 @@ $(document).ready(function(){
             url: "/forgot-password",
             type: "POST",
             contentType: "application/json; charset=utf-8",
-            data: JSON.
+            data: JSON.stringify({
+                Email: $("#email").val(),
+                Captcha: grecaptcha.getRes
