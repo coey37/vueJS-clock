@@ -15,4 +15,7 @@ $(document).ready(function(){
             }),
             dataType: "json",
             success: function(r) {
-       
+                console.log(r.Code);
+                switch(r.Code) {
+                    case 0: {
+                        $("#message").html("Successfully sent email to "
