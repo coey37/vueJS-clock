@@ -19,4 +19,7 @@ $(document).ready(function(){
                 switch(r.Code) {
                     case 0: {
                         $("#message").html("Successfully sent email to " + $("#email").val() + " check your inbox for a password recovery message.");
-                        b
+                        break;
+                    }
+                    case 1: {
+                        $
