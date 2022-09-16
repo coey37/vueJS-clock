@@ -22,4 +22,5 @@ $(document).ready(function(){
                         break;
                     }
                     case 1: {
-                        $
+                        $("#message").html("The email you provided didn't seem to have an account.");
+               
