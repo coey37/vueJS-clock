@@ -27,4 +27,7 @@ $(document).ready(function(){
                     }
                     case 2: {
                         $("#message").html("Please check the recaptcha and try again.");
-                       
+                        break;
+                    }
+                    case 3: {
+                
