@@ -26,4 +26,5 @@ $(document).ready(function(){
                         break;
                     }
                     case 2: {
+                        $("#message").html("Please check the recaptcha and try again.");
                        
