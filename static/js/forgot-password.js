@@ -32,4 +32,6 @@ $(document).ready(function(){
                     case 3: {
                         $("#message").html("Error 500: Internal server error.");
                         break;
-     
+                    }
+                    case 4: {
+                        $("#message").html("Err
