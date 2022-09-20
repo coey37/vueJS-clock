@@ -34,4 +34,7 @@ $(document).ready(function(){
                         break;
                     }
                     case 4: {
-                        $("#message").html("Err
+                        $("#message").html("Error sending email.");
+                        break;
+                    }
+       
