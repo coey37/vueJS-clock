@@ -37,4 +37,6 @@ $(document).ready(function(){
                         $("#message").html("Error sending email.");
                         break;
                     }
-       
+                    default: {
+                        $("#message").html("Unknown error...");
+  
