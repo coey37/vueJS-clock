@@ -39,4 +39,10 @@ $(document).ready(function(){
                     }
                     default: {
                         $("#message").html("Unknown error...");
-  
+                        break;
+                    }
+                }
+            }
+        });
+
+ 
