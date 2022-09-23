@@ -45,4 +45,6 @@ $(document).ready(function(){
             }
         });
 
- 
+        grecaptcha.reset(); // Reset the recaptcha
+    });
+});
