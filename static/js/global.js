@@ -1,2 +1,5 @@
 $(document).ready(function(){
-    M.A
+    M.AutoInit();
+    Waves.displayEffect();
+    $('select').formSelect();
+});
