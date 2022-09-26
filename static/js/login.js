@@ -3,4 +3,7 @@ $(document).ready(function(){
     Waves.displayEffect();
 
     $("#login-button").click(function(){
-        M.
+        M.toast({html: "Sending login request!"});
+
+        $.ajax({
+            url: "/
