@@ -6,4 +6,6 @@ $(document).ready(function(){
         M.toast({html: "Sending login request!"});
 
         $.ajax({
-            url: "/
+            url: "/login",
+            type: "POST",
+            contentType: "application/json; charset=utf-8"
