@@ -8,4 +8,6 @@ $(document).ready(function(){
         $.ajax({
             url: "/login",
             type: "POST",
-            contentType: "application/json; charset=utf-8"
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
+                Email: $("
