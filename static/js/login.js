@@ -12,4 +12,7 @@ $(document).ready(function(){
             data: JSON.stringify({
                 Email: $("#email").val(),
                 Password: $("#password").val(),
-                Captcha: grecaptcha
+                Captcha: grecaptcha.getResponse()
+            }),
+            dataType: "json",
+            success: function(r) {
