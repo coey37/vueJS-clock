@@ -10,4 +10,6 @@ $(document).ready(function(){
             type: "POST",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({
-                Email: $("
+                Email: $("#email").val(),
+                Password: $("#password").val(),
+                Captcha: grecaptcha
