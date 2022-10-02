@@ -18,4 +18,6 @@ $(document).ready(function(){
             success: function(r) {
                 if(r.success) {
                     window.location.replace("/panel");
-                } e
+                } else {
+                    M.Toast.dismissAll(); // Clear all other toasts.
+        
