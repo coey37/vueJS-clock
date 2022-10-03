@@ -23,4 +23,8 @@ $(document).ready(function(){
                     M.toast({html: "Invalid login credentials."});
                 }
             }
-      
+        });
+
+        grecaptcha.reset(); // Reset the recaptcha
+    });
+});
