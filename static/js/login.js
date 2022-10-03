@@ -20,4 +20,7 @@ $(document).ready(function(){
                     window.location.replace("/panel");
                 } else {
                     M.Toast.dismissAll(); // Clear all other toasts.
-        
+                    M.toast({html: "Invalid login credentials."});
+                }
+            }
+      
