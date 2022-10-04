@@ -3,4 +3,5 @@ $(document).ready(function(){
     Waves.displayEffect();
 
     $("#button").click(function(){
-    
+        if ($("#password").val() !== $("#confirmPassword").val()) {
+            M.toast({html: "Passw
