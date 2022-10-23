@@ -4,4 +4,8 @@ $(document).ready(function(){
 
     $("#button").click(function(){
         if ($("#password").val() !== $("#confirmPassword").val()) {
-            M.toast({html: "Passw
+            M.toast({html: "Passwords are different."});
+            return;
+        }
+
+        M.toast({html: "Resettin
