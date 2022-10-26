@@ -8,4 +8,9 @@ $(document).ready(function(){
             return;
         }
 
-        M.toast({html: "Resettin
+        M.toast({html: "Resetting password!"});
+ 
+        $.ajax({
+            url: "/password-recovery",
+            type: "POST",
+        
