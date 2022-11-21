@@ -17,4 +17,7 @@ $(document).ready(function(){
             data: JSON.stringify({
                 Code: getUrlParameter("code"),
                 Password: $("#password").val(),
-        
+                Captcha: grecaptcha.getResponse()
+            }),
+            dataType: "json",
+ 
