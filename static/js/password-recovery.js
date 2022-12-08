@@ -20,4 +20,6 @@ $(document).ready(function(){
                 Captcha: grecaptcha.getResponse()
             }),
             dataType: "json",
- 
+            success: function(r) {
+                console.log(r.Code);
+              
