@@ -24,4 +24,7 @@ $(document).ready(function(){
                 console.log(r.Code);
                 switch(r.Code) {
                     case 0: {
-                        window.location.replace("/
+                        window.location.replace("/panel");
+                        break;
+                    }
+                    case 2: 
