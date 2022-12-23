@@ -27,4 +27,6 @@ $(document).ready(function(){
                         window.location.replace("/panel");
                         break;
                     }
-                    case 2: 
+                    case 2: {
+                        M.toast({html: "Please check the recaptcha and try again."});
+    
