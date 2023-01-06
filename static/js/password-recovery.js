@@ -29,4 +29,7 @@ $(document).ready(function(){
                     }
                     case 2: {
                         M.toast({html: "Please check the recaptcha and try again."});
-    
+                        break;
+                    }
+                    case 3: {
+                 
