@@ -34,4 +34,6 @@ $(document).ready(function(){
                     case 3: {
                         M.toast({html: "Error 500: Internal server error."});
                         break;
-   
+                    }
+                    case 5: {
+                        M.toast({html: "Your rec
