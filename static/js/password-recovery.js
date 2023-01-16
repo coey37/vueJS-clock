@@ -36,4 +36,7 @@ $(document).ready(function(){
                         break;
                     }
                     case 5: {
-                        M.toast({html: "Your rec
+                        M.toast({html: "Your recovery code is invalid."});
+                        break;
+                    }
+                    d
