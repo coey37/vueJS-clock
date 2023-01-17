@@ -41,4 +41,8 @@ $(document).ready(function(){
                     }
                     default: {
                         M.toast({html: "Unknown error..."});
-    
+                        break;
+                    }
+                }
+            }
+        
