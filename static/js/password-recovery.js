@@ -39,4 +39,6 @@ $(document).ready(function(){
                         M.toast({html: "Your recovery code is invalid."});
                         break;
                     }
-                    d
+                    default: {
+                        M.toast({html: "Unknown error..."});
+    
