@@ -45,4 +45,9 @@ $(document).ready(function(){
                     }
                 }
             }
-        
+        });
+
+        grecaptcha.reset(); // Reset the recaptcha
+    });
+
+    var getUrlPar
