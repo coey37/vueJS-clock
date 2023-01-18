@@ -50,4 +50,5 @@ $(document).ready(function(){
         grecaptcha.reset(); // Reset the recaptcha
     });
 
-    var getUrlPar
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.l
