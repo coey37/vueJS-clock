@@ -53,4 +53,7 @@ $(document).ready(function(){
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),
-            s
+            sParameterName,
+            i;
+    
+        for (i = 0; i < sURLVariables.length; i++) {
