@@ -57,3 +57,6 @@ $(document).ready(function(){
             i;
     
         for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+    
+            if (sParameterName[0]
