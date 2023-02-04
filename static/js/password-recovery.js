@@ -61,4 +61,7 @@ $(document).ready(function(){
     
             if (sParameterName[0] === sParam) {
                 return sParameterName[1] === undefined ? true : sParameterName[1];
-   
+            }
+        }
+    };
+});
