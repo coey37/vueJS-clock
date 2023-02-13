@@ -9,3 +9,6 @@ $(document).ready(function(){
 
         $.ajax({
             url: "/panel/trade/cancel",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: JSON
