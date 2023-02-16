@@ -14,4 +14,7 @@ $(document).ready(function(){
             data: JSON.stringify({
                 ID: id,
                 CsrfSecret: CsrfSecret
-          
+            }),
+            dataType: "json",
+            success: function(r) {
+           
