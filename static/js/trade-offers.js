@@ -11,4 +11,7 @@ $(document).ready(function(){
             url: "/panel/trade/cancel",
             type: "POST",
             contentType: "application/json; charset=utf-8",
-            data: JSON
+            data: JSON.stringify({
+                ID: id,
+                CsrfSecret: CsrfSecret
+          
