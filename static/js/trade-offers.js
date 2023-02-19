@@ -19,4 +19,6 @@ $(document).ready(function(){
             success: function(r) {
                 M.Toast.dismissAll(); // Clear all other toasts.
                 if(r.success) {
-         
+                    offer.remove();
+                    M.toast({html: "Successfully cancelled trade."});
+           
