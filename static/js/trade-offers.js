@@ -21,4 +21,6 @@ $(document).ready(function(){
                 if(r.success) {
                     offer.remove();
                     M.toast({html: "Successfully cancelled trade."});
-           
+                } else {
+                    M.toast({html: "Error cancelling trade, refresh the page."});
+      
