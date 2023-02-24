@@ -23,4 +23,9 @@ $(document).ready(function(){
                     M.toast({html: "Successfully cancelled trade."});
                 } else {
                     M.toast({html: "Error cancelling trade, refresh the page."});
-      
+                }
+            }
+        });
+    });
+
+    $(".accept-button").click(function(
