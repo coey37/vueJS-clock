@@ -28,4 +28,6 @@ $(document).ready(function(){
         });
     });
 
-    $(".accept-button").click(function(
+    $(".accept-button").click(function(){
+        var offer = $(this).closest(".trade-offer");
+        var id = pa
