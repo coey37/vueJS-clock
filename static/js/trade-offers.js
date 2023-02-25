@@ -32,4 +32,9 @@ $(document).ready(function(){
         var offer = $(this).closest(".trade-offer");
         var id = parseInt(offer.attr("data-id"));
 
-        M.toast({html: "Accepting trade offer."})
+        M.toast({html: "Accepting trade offer."});
+
+        $.ajax({
+            url: "/panel/trade/accept",
+            type: "POST",
+      
