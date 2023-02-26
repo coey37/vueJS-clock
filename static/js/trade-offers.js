@@ -37,4 +37,6 @@ $(document).ready(function(){
         $.ajax({
             url: "/panel/trade/accept",
             type: "POST",
-      
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
+          
