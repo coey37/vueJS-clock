@@ -42,4 +42,6 @@ $(document).ready(function(){
                 ID: id,
                 CsrfSecret: CsrfSecret
             }),
-            d
+            dataType: "json",
+            success: function(r) {
+                M.Toast.dis
