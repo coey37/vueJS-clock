@@ -47,4 +47,6 @@ $(document).ready(function(){
                 M.Toast.dismissAll(); // Clear all other toasts.
                 if(r.success) {
                     offer.children(".status").text("Offer accepted");
-                    M.toas
+                    M.toast({html: "Successfully accepted trade."});
+                } else {
+                    
