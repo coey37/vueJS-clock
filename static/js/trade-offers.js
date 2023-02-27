@@ -44,4 +44,6 @@ $(document).ready(function(){
             }),
             dataType: "json",
             success: function(r) {
-                M.Toast.dis
+                M.Toast.dismissAll(); // Clear all other toasts.
+                if(r.success) {
+                  
