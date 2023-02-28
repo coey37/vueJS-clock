@@ -49,4 +49,7 @@ $(document).ready(function(){
                     offer.children(".status").text("Offer accepted");
                     M.toast({html: "Successfully accepted trade."});
                 } else {
-                    
+                    M.toast({html: "Error accepting trade, refresh the page."});
+                }
+            }
+ 
