@@ -1,2 +1,5 @@
 $(document).ready(function(){
-    var classid = $(location).at
+    var classid = $(location).attr("href").split('/').pop();
+
+    $("#submit").click(function(){
+        M.toast({html: "Sending trade 
