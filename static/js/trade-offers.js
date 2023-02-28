@@ -52,4 +52,6 @@ $(document).ready(function(){
                     M.toast({html: "Error accepting trade, refresh the page."});
                 }
             }
- 
+        });
+    });
+});
