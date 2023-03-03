@@ -7,4 +7,6 @@ $(document).ready(function(){
         $.ajax({
             url: "/panel/trade",
             type: "POST",
- 
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
+         
