@@ -9,4 +9,6 @@ $(document).ready(function(){
             type: "POST",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({
-         
+                User: $("#user").val(),
+                Points: parseInt($("#points").val()),
+                
