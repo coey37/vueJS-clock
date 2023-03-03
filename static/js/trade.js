@@ -11,4 +11,7 @@ $(document).ready(function(){
             data: JSON.stringify({
                 User: $("#user").val(),
                 Points: parseInt($("#points").val()),
-                
+                Classid: classid,
+                CsrfSecret: CsrfSecret
+            }),
+            dataType
