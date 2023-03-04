@@ -14,4 +14,7 @@ $(document).ready(function(){
                 Classid: classid,
                 CsrfSecret: CsrfSecret
             }),
-            dataType
+            dataType: "json",
+            success: function(r) {
+                if(r.success) {
+             
