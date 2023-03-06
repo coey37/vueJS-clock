@@ -17,4 +17,5 @@ $(document).ready(function(){
             dataType: "json",
             success: function(r) {
                 if(r.success) {
-             
+                    window.location.replace("/panel/trade-offers");
+                } else {
