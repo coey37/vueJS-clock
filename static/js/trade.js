@@ -19,3 +19,5 @@ $(document).ready(function(){
                 if(r.success) {
                     window.location.replace("/panel/trade-offers");
                 } else {
+                    M.Toast.dismissAll(); // Clear all other toasts.
+                 
