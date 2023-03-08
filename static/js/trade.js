@@ -20,4 +20,6 @@ $(document).ready(function(){
                     window.location.replace("/panel/trade-offers");
                 } else {
                     M.Toast.dismissAll(); // Clear all other toasts.
-                 
+                    if (r.id === 0) {
+                        // UserNotFound
+                    
