@@ -23,4 +23,6 @@ $(document).ready(function(){
                     if (r.id === 0) {
                         // UserNotFound
                         M.toast({html: "We couldn't find the user " + $("#user").val() + " in our database."});
-     
+                    } else {
+                        // Unspecified Error
+                        M
