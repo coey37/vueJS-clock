@@ -25,4 +25,6 @@ $(document).ready(function(){
                         M.toast({html: "We couldn't find the user " + $("#user").val() + " in our database."});
                     } else {
                         // Unspecified Error
-                        M
+                        M.toast({html: "Error sending trade offer."});
+                    }
+       
