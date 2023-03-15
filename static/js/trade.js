@@ -27,4 +27,8 @@ $(document).ready(function(){
                         // Unspecified Error
                         M.toast({html: "Error sending trade offer."});
                     }
-       
+                }
+            }
+        });
+    });
+});
