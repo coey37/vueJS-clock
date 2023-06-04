@@ -81,3 +81,89 @@ func GetUser(steamID int64) (user models.SteamUser, err error) {
 func GetInventory(steamID int64) (inventory models.SteamInventory, err error) {
 	client := http.Client{
 		Timeout: time.Second * 2, // Maximum of 2 secs
+	}
+
+	req, err := http.NewRequest(http.MethodGet, fmt.Sprintf("https://steamcommunity.com/inventory/%v/730/2?l=english&count=5000", steamID), nil)
+	if err != nil {
+		return
+	}
+
+	req.Header.Set("User-Agent", "froogo")
+
+	res, err := client.Do(req)
+	if err != nil {
+		return
+	}
+
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return
+	}
+
+	err = json.Unmarshal(body, &inventory)
+	return
+}
+
+func FloatAPI(steamID, assetid, d string) (floatAPI models.FloatAPI, err error) {
+	client := http.Client{
+		Timeout: time.Second * 2, // Maximum of 2 secs
+	}
+
+	req, err := http.NewRequest(http.MethodGet, fmt.Sprintf("https://api.csgofloat.com:1738/?s=%v&a=%v&d=%v", steamID, assetid, d), nil)
+	if err != nil {
+		return
+	}
+
+	req.Header.Set("User-Agent", "froogo")
+
+	res, err := client.Do(req)
+	if err != nil {
+		return
+	}
+
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return
+	}
+
+	err = json.Unmarshal(body, &floatAPI)
+	return
+}
+
+func GetItemValue(marketHashName string) (points int, err error) {
+	client := http.Client{
+		Timeout: time.Second * 2, // Maximum of 2 secs
+	}
+
+	urlMarketHashName := &url.URL{Path: marketHashName}
+	safeMarketHashName := urlMarketHashName.String()
+	req, err := http.NewRequest(http.MethodGet, fmt.Sprintf("https://steamcommunity.com/market/priceoverview/?currency=2&appid=730&market_hash_name=%v", safeMarketHashName), nil)
+	if err != nil {
+		return
+	}
+
+	req.Header.Set("User-Agent", "froogo")
+
+	res, err := client.Do(req)
+	if err != nil {
+		return
+	}
+
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return
+	}
+
+	var item ItemValue
+	err = json.Unmarshal(body, &item)
+	if err != nil {
+		return
+	}
+
+	valueString := strings.TrimPrefix(item.MedianPrice, "£")
+	valueFloat, err := strconv.ParseFloat(valueString, 10)
+	valueFloat = valueFloat * 100
+
+	points = int(valueFloat)
+	return
+}
